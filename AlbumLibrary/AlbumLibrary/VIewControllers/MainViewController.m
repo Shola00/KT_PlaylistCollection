@@ -16,6 +16,7 @@
 @property (nonatomic, strong) UIImageView *playButtonImage;
 @property (nonatomic, strong) UIImageView *shuffleButtonImage;
 @property (nonatomic, strong) UIImageView *mainAlbumView;
+@property (nonatomic, strong) UICollectionView *collectionView;
 
 @end
 
@@ -84,33 +85,8 @@
     [vwLine setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.view addSubview:vwLine];
     
+
     
-//    int x,y;
-//    x= 0;
-//    y=50;
-//
-//    for (int i=0; i<4; i++)
-//    {
-//        self.mainAlbumView = [[UIImageView alloc] init];
-//
-//        self.mainAlbumView.backgroundColor = [UIColor blueColor];
-//        self.mainAlbumView.layer.cornerRadius = 5.0f;
-//        [self.mainAlbumView addSubview: self.mainAlbumView];
-//        y+=140; //y for next view should be height of previous view and margin between view
-//    }
-    
-    /*
-    NSDictionary *dictViews = @{@"red":playButton,@"green":shuffleButton,@"lbl":label,@"line":vwLine};
-    
-    NSDictionary *dictMetrics = @{@"height":@(40),@"offset":@(-40)};
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-20-[red]-15-[green(==red)]-20-|" options:0 metrics:nil views:dictViews]];
-    
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-20-[line]-20-|" options:0 metrics:nil views:dictViews]];
-    
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-20-[lbl]-20-|" options:0 metrics:nil views:dictViews]];
-    
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(height)-[lbl]-7-[red(height)]-(offset)-[green(==red)]-50-[line(0.1)]" options:0 metrics:dictMetrics views:dictViews]];
-    */
     
 }
 
@@ -130,6 +106,8 @@
     CGSize playButtonIconSize = CGSizeMake(15, 15);
     CGFloat spaceBetweenPlayButtonTextAndPlayIcon = -30;
     CGFloat spaceBetweenShuffleButtonAndShuffleIcon = -40;
+    
+    
     
     [self.playButtonImage.centerYAnchor constraintEqualToAnchor:self.playButtonImage.superview.centerYAnchor].active = YES;
     
@@ -164,6 +142,7 @@
     [self.shuffleButton.topAnchor constraintEqualToAnchor:self.albumTitleLabel.bottomAnchor constant:spaceBetweenAlbumAndButtons].active = YES;
     [self.shuffleButton.leftAnchor constraintEqualToAnchor:self.playButton.rightAnchor constant:20].active = YES;
     
+ 
     
     
 }
