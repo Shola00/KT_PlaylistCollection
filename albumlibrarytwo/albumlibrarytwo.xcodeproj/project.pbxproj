@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		74FB718420C15A43007712F3 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FB718020C15A42007712F3 /* MainViewController.m */; };
+		74FB718520C15A43007712F3 /* AlbumDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FB718120C15A42007712F3 /* AlbumDetailViewController.m */; };
+		74FB718A20C15A96007712F3 /* UIView+ExtraLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FB718820C15A96007712F3 /* UIView+ExtraLayout.m */; };
+		74FB719620C15AB2007712F3 /* Album.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FB718D20C15AB2007712F3 /* Album.m */; };
+		74FB719820C15AB2007712F3 /* AlbumLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FB719120C15AB2007712F3 /* AlbumLibrary.m */; };
+		74FB719920C15AB2007712F3 /* LibraryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FB719320C15AB2007712F3 /* LibraryCollectionViewCell.m */; };
 		74FFA0CD20C01EAA0092A05E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FFA0CC20C01EAA0092A05E /* AppDelegate.m */; };
-		74FFA0D020C01EAA0092A05E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FFA0CF20C01EAA0092A05E /* ViewController.m */; };
-		74FFA0D320C01EAA0092A05E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74FFA0D120C01EAA0092A05E /* Main.storyboard */; };
 		74FFA0D520C01EAA0092A05E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74FFA0D420C01EAA0092A05E /* Assets.xcassets */; };
 		74FFA0D820C01EAA0092A05E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74FFA0D620C01EAA0092A05E /* LaunchScreen.storyboard */; };
 		74FFA0DB20C01EAA0092A05E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FFA0DA20C01EAA0092A05E /* main.m */; };
@@ -35,12 +39,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		74FB718020C15A42007712F3 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		74FB718120C15A42007712F3 /* AlbumDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumDetailViewController.m; sourceTree = "<group>"; };
+		74FB718220C15A42007712F3 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		74FB718320C15A42007712F3 /* AlbumDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumDetailViewController.h; sourceTree = "<group>"; };
+		74FB718820C15A96007712F3 /* UIView+ExtraLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+ExtraLayout.m"; path = "albumlibrarytwo/Category/UIView+ExtraLayout.m"; sourceTree = SOURCE_ROOT; };
+		74FB718920C15A96007712F3 /* UIView+ExtraLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+ExtraLayout.h"; path = "albumlibrarytwo/Category/UIView+ExtraLayout.h"; sourceTree = SOURCE_ROOT; };
+		74FB718C20C15AB2007712F3 /* Album.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Album.h; sourceTree = "<group>"; };
+		74FB718D20C15AB2007712F3 /* Album.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Album.m; sourceTree = "<group>"; };
+		74FB719020C15AB2007712F3 /* AlbumLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumLibrary.h; sourceTree = "<group>"; };
+		74FB719120C15AB2007712F3 /* AlbumLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumLibrary.m; sourceTree = "<group>"; };
+		74FB719220C15AB2007712F3 /* LibraryCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryCollectionViewCell.h; sourceTree = "<group>"; };
+		74FB719320C15AB2007712F3 /* LibraryCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryCollectionViewCell.m; sourceTree = "<group>"; };
 		74FFA0C820C01EAA0092A05E /* albumlibrarytwo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = albumlibrarytwo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74FFA0CB20C01EAA0092A05E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		74FFA0CC20C01EAA0092A05E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		74FFA0CE20C01EAA0092A05E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		74FFA0CF20C01EAA0092A05E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		74FFA0D220C01EAA0092A05E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		74FFA0D420C01EAA0092A05E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		74FFA0D720C01EAA0092A05E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		74FFA0D920C01EAA0092A05E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -78,6 +91,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		74FB718620C15A4D007712F3 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				74FB718320C15A42007712F3 /* AlbumDetailViewController.h */,
+				74FB718120C15A42007712F3 /* AlbumDetailViewController.m */,
+				74FB718220C15A42007712F3 /* MainViewController.h */,
+				74FB718020C15A42007712F3 /* MainViewController.m */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		74FB718720C15A71007712F3 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				74FB718920C15A96007712F3 /* UIView+ExtraLayout.h */,
+				74FB718820C15A96007712F3 /* UIView+ExtraLayout.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		74FB718B20C15AB2007712F3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				74FB718C20C15AB2007712F3 /* Album.h */,
+				74FB718D20C15AB2007712F3 /* Album.m */,
+				74FB719020C15AB2007712F3 /* AlbumLibrary.h */,
+				74FB719120C15AB2007712F3 /* AlbumLibrary.m */,
+				74FB719220C15AB2007712F3 /* LibraryCollectionViewCell.h */,
+				74FB719320C15AB2007712F3 /* LibraryCollectionViewCell.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		74FFA0BF20C01EAA0092A05E = {
 			isa = PBXGroup;
 			children = (
@@ -101,11 +147,11 @@
 		74FFA0CA20C01EAA0092A05E /* albumlibrarytwo */ = {
 			isa = PBXGroup;
 			children = (
+				74FB718620C15A4D007712F3 /* View Controllers */,
+				74FB718B20C15AB2007712F3 /* Models */,
+				74FB718720C15A71007712F3 /* Categories */,
 				74FFA0CB20C01EAA0092A05E /* AppDelegate.h */,
 				74FFA0CC20C01EAA0092A05E /* AppDelegate.m */,
-				74FFA0CE20C01EAA0092A05E /* ViewController.h */,
-				74FFA0CF20C01EAA0092A05E /* ViewController.m */,
-				74FFA0D120C01EAA0092A05E /* Main.storyboard */,
 				74FFA0D420C01EAA0092A05E /* Assets.xcassets */,
 				74FFA0D620C01EAA0092A05E /* LaunchScreen.storyboard */,
 				74FFA0D920C01EAA0092A05E /* Info.plist */,
@@ -240,7 +286,6 @@
 			files = (
 				74FFA0D820C01EAA0092A05E /* LaunchScreen.storyboard in Resources */,
 				74FFA0D520C01EAA0092A05E /* Assets.xcassets in Resources */,
-				74FFA0D320C01EAA0092A05E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,9 +310,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				74FFA0D020C01EAA0092A05E /* ViewController.m in Sources */,
 				74FFA0DB20C01EAA0092A05E /* main.m in Sources */,
+				74FB718520C15A43007712F3 /* AlbumDetailViewController.m in Sources */,
+				74FB719920C15AB2007712F3 /* LibraryCollectionViewCell.m in Sources */,
+				74FB718A20C15A96007712F3 /* UIView+ExtraLayout.m in Sources */,
+				74FB719620C15AB2007712F3 /* Album.m in Sources */,
+				74FB718420C15A43007712F3 /* MainViewController.m in Sources */,
 				74FFA0CD20C01EAA0092A05E /* AppDelegate.m in Sources */,
+				74FB719820C15AB2007712F3 /* AlbumLibrary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,14 +353,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		74FFA0D120C01EAA0092A05E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				74FFA0D220C01EAA0092A05E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		74FFA0D620C01EAA0092A05E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

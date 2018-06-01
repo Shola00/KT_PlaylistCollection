@@ -1,12 +1,13 @@
 //
 //  AppDelegate.m
-//  albumlibrarytwo
+//  AlbumLibrary
 //
-//  Created by Shola Emmanuel on 31/05/2018.
+//  Created by Shola Emmanuel on 28/05/2018.
 //  Copyright © 2018 KaiTech. All rights reserved.
 //
 
 #import "AppDelegate.h"
+#import "MainViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,15 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    MainViewController *mainViewController = [[MainViewController alloc] init];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:mainViewController];
+    self.window.rootViewController = navigationController;
+    
+    
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

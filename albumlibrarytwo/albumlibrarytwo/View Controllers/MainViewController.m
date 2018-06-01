@@ -9,10 +9,11 @@
 #import "MainViewController.h"
 #import "AppDelegate.h"
 #import "LibraryCollectionViewCell.h"
+#import "Album.h"
 
 @interface MainViewController () <UICollectionViewDelegateFlowLayout, UICollectionViewDataSource>
 
-@property (nonatomic, strong) UILabel *albumTitleLabel;
+@property (nonatomic, strong) UILabel *albumLabel;
 @property (nonatomic, strong) UIButton *playButton;
 @property (nonatomic, strong) UIButton *shuffleButton;
 @property (nonatomic, strong) UIImageView *playButtonImage;
@@ -40,24 +41,23 @@
     self.collectionView.translatesAutoresizingMaskIntoConstraints = NO;
     [self.collectionView registerClass:[LibraryCollectionViewCell class] forCellWithReuseIdentifier:@"libraryCell"];
     
-    LibraryCollectionViewCell *myLibraryCell;
-    myLibraryCell.myAlbumImage = 
-    
+ 
+    self.collectionView.backgroundColor = [UIColor whiteColor];
     
     [self.collectionView setDataSource:self];
     [self.collectionView setDelegate:self];
     
-    
+    self.album = [[Album alloc] init];
     
     [self.view addSubview:self.collectionView];
     
     
     UILabel *label = [[UILabel alloc] init];
-    label.text = @"Albums";
+     label.text = @"Albums";
     label.font = [UIFont fontWithName:@"Helvetica-Bold" size:30];
-    self.albumTitleLabel = label;
-    self.albumTitleLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.view addSubview: self.albumTitleLabel];
+    self.albumLabel = label;
+    self.albumLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addSubview: self.albumLabel];
     
     
     UIButton *playButton = [UIButton new];
@@ -114,7 +114,7 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     CGFloat width = self.view.frame.size.width * 0.85;
-    CGFloat height = 173;
+    CGFloat height = 215;
     return CGSizeMake(width/2, height);
 }
 
@@ -127,15 +127,19 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"libraryCell" forIndexPath:indexPath];
+    LibraryCollectionViewCell *newLibraryCell = (LibraryCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"libraryCell" forIndexPath:indexPath];
+    
+    newLibraryCell.myAlbumImage = [UIImage imageNamed:@"shuffle-button.png"];
+    
+
+    newLibraryCell.albumTitleLabel.text = @"album title";
+    newLibraryCell.artistNameLabel.text = self.album.artist[0];
+    
+//    newLibraryCell.artistNameLabel.text = [self.album.artist objectAtIndex:indexPath.row];
     
     
-    [self.collectionView setBackgroundColor:[UIColor whiteColor]];
-    
-    
-    
-    cell.backgroundColor=[UIColor colorWithRed:(248/255.0) green:(247/255.0) blue:(251/255.0) alpha:1];
-    return cell;
+
+   return newLibraryCell;
 }
 
 
@@ -164,13 +168,13 @@
     
     [self.playButton.heightAnchor constraintEqualToConstant:titleButtonHeightConstant].active = YES;
     
-    [self.albumTitleLabel.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:(screenSize.height * 0.11)].active = YES;
+    [self.albumLabel.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:(screenSize.height * 0.11)].active = YES;
     
-    [self.albumTitleLabel.leftAnchor constraintEqualToAnchor:self.view.leftAnchor constant:20].active = YES;
+    [self.albumLabel.leftAnchor constraintEqualToAnchor:self.view.leftAnchor constant:20].active = YES;
     
-    [self.playButton.leftAnchor constraintEqualToAnchor:self.albumTitleLabel.leftAnchor].active = YES;
+    [self.playButton.leftAnchor constraintEqualToAnchor:self.albumLabel.leftAnchor].active = YES;
     
-    [self.playButton.topAnchor constraintEqualToAnchor:self.albumTitleLabel.bottomAnchor constant:spaceBetweenAlbumAndButtons].active = YES;
+    [self.playButton.topAnchor constraintEqualToAnchor:self.albumLabel.bottomAnchor constant:spaceBetweenAlbumAndButtons].active = YES;
     
 
     [self.shuffleButtonImage.centerYAnchor constraintEqualToAnchor:self.shuffleButtonImage.superview.centerYAnchor].active = YES;
@@ -183,7 +187,7 @@
     [self.shuffleButton.heightAnchor constraintEqualToConstant:titleButtonHeightConstant].active = YES;
     [self.shuffleButton.rightAnchor
         constraintEqualToAnchor:self.view.rightAnchor constant:-20].active = YES;
-    [self.shuffleButton.topAnchor constraintEqualToAnchor:self.albumTitleLabel.bottomAnchor constant:spaceBetweenAlbumAndButtons].active = YES;
+    [self.shuffleButton.topAnchor constraintEqualToAnchor:self.albumLabel.bottomAnchor constant:spaceBetweenAlbumAndButtons].active = YES;
     [self.shuffleButton.leftAnchor constraintEqualToAnchor:self.playButton.rightAnchor constant:20].active = YES;
     
     //the TOP ANCHOR of the collectionview should be positioned under the BOTTOM of the play BUTTON ANCHOR with little spacing UNDER the buttons

@@ -18,6 +18,7 @@
 		7486160620BC17BA007CC53D /* Album.m in Sources */ = {isa = PBXBuildFile; fileRef = 7486160520BC17BA007CC53D /* Album.m */; };
 		7486160C20BC18A3007CC53D /* AlbumDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7486160B20BC18A3007CC53D /* AlbumDetailViewController.m */; };
 		74FB717C20C149B5007712F3 /* LibraryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FB717B20C149B5007712F3 /* LibraryCollectionViewCell.m */; };
+		74FB717F20C14D8B007712F3 /* UIView+ExtraLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FB717E20C14D8B007712F3 /* UIView+ExtraLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,8 @@
 		7486160B20BC18A3007CC53D /* AlbumDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlbumDetailViewController.m; sourceTree = "<group>"; };
 		74FB717A20C149B5007712F3 /* LibraryCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LibraryCollectionViewCell.h; sourceTree = "<group>"; };
 		74FB717B20C149B5007712F3 /* LibraryCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LibraryCollectionViewCell.m; sourceTree = "<group>"; };
+		74FB717D20C14D8B007712F3 /* UIView+ExtraLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+ExtraLayout.h"; sourceTree = "<group>"; };
+		74FB717E20C14D8B007712F3 /* UIView+ExtraLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+ExtraLayout.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +153,8 @@
 				7486160120BC16FF007CC53D /* AlbumLibrary.h */,
 				74FB717A20C149B5007712F3 /* LibraryCollectionViewCell.h */,
 				74FB717B20C149B5007712F3 /* LibraryCollectionViewCell.m */,
+				74FB717D20C14D8B007712F3 /* UIView+ExtraLayout.h */,
+				74FB717E20C14D8B007712F3 /* UIView+ExtraLayout.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -302,6 +307,7 @@
 				748615CE20BC14CD007CC53D /* AppDelegate.m in Sources */,
 				74FB717C20C149B5007712F3 /* LibraryCollectionViewCell.m in Sources */,
 				7486160620BC17BA007CC53D /* Album.m in Sources */,
+				74FB717F20C14D8B007712F3 /* UIView+ExtraLayout.m in Sources */,
 				7486160320BC16FF007CC53D /* AlbumLibrary.m in Sources */,
 				7486160C20BC18A3007CC53D /* AlbumDetailViewController.m in Sources */,
 			);

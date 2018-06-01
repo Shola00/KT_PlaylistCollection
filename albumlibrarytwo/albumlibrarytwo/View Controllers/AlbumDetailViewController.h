@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  AlbumDetailViewController.h
 //  AlbumLibrary
 //
 //  Created by Shola Emmanuel on 28/05/2018.
@@ -8,10 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
-
+@interface AlbumDetailViewController : UIViewController
 
 @end
-

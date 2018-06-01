@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class Album;
 @interface LibraryCollectionViewCell : UICollectionViewCell
 
+@property (strong, nonatomic) Album *album;
 @property (nonatomic, strong) UIImage *myAlbumImage;
 @property (nonatomic, strong) UILabel *albumTitleLabel;
-@property (nonatomic, strong) UILabel *artistLabel;
+@property (nonatomic, strong) UILabel *artistNameLabel;
 
 @end
