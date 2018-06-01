@@ -8,7 +8,7 @@
 
 #import "MainViewController.h"
 #import "AppDelegate.h"
-@interface MainViewController ()
+@interface MainViewController () <UICollectionViewDelegateFlowLayout, UICollectionViewDataSource>
 
 @property (nonatomic, strong) UILabel *albumTitleLabel;
 @property (nonatomic, strong) UIButton *playButton;
@@ -33,6 +33,18 @@
     self.navigationController.navigationBar.translucent = YES;
     self.navigationController.view.backgroundColor = [UIColor clearColor];
     
+    UICollectionViewFlowLayout *layout=[[UICollectionViewFlowLayout alloc] init];
+    self.collectionView=[[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+    self.collectionView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cellIdentifier"];
+    
+    [self.collectionView setDataSource:self];
+    [self.collectionView setDelegate:self];
+    
+    
+    
+    [self.view addSubview:self.collectionView];
+    
     
     UILabel *label = [[UILabel alloc] init];
     label.text = @"Albums";
@@ -56,7 +68,6 @@
     playButtonImage.translatesAutoresizingMaskIntoConstraints = NO;
     self.playButtonImage = playButtonImage;
     [playButton addSubview:self.playButtonImage];
-    
     
     
     [self.view addSubview: self.playButton];
@@ -85,14 +96,40 @@
     [vwLine setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.view addSubview:vwLine];
     
-
-    
     
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    CGFloat width = self.view.frame.size.width * 0.85;
+    CGFloat height = 175;
+    return CGSizeMake(width/2, height);
+}
+
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return 10;
+}
+
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionViewCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"cellIdentifier" forIndexPath:indexPath];
+    
+    
+    [self.collectionView setBackgroundColor:[UIColor whiteColor]];
+    
+    
+    
+    cell.backgroundColor=[UIColor colorWithRed:(248/255.0) green:(247/255.0) blue:(251/255.0) alpha:1];
+    return cell;
 }
 
 
@@ -106,6 +143,7 @@
     CGSize playButtonIconSize = CGSizeMake(15, 15);
     CGFloat spaceBetweenPlayButtonTextAndPlayIcon = -30;
     CGFloat spaceBetweenShuffleButtonAndShuffleIcon = -40;
+    CGFloat collectionViewMultiplier = 0.9;
     
     
     
@@ -142,7 +180,18 @@
     [self.shuffleButton.topAnchor constraintEqualToAnchor:self.albumTitleLabel.bottomAnchor constant:spaceBetweenAlbumAndButtons].active = YES;
     [self.shuffleButton.leftAnchor constraintEqualToAnchor:self.playButton.rightAnchor constant:20].active = YES;
     
- 
+    //the TOP ANCHOR of the collectionview should be positioned under the BOTTOM of the play BUTTON ANCHOR with little spacing UNDER the buttons
+    [self.collectionView.topAnchor constraintEqualToAnchor:self.playButton.bottomAnchor constant:20].active = YES;
+    
+    //the width of the collectionview is 90% the width of the superview
+    [self.collectionView.widthAnchor constraintEqualToAnchor:self.collectionView.superview.widthAnchor multiplier:collectionViewMultiplier].active = YES;
+    
+    //the center of the collectionview is centered to the x-axis.
+    [self.collectionView.centerXAnchor constraintEqualToAnchor:self.collectionView.superview.centerXAnchor].active = YES;
+    
+    
+    [self.collectionView.bottomAnchor constraintEqualToAnchor:self.collectionView.superview.bottomAnchor].active = YES;
+
     
     
 }
