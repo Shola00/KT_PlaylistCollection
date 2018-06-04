@@ -14,6 +14,8 @@ NSString *const kGenre = @"genre";
 NSString *const kArtist = @"artist";
 NSString *const kDuration = @"duration";
 NSString *const kSongs = @"songs";
+NSString *const kAlbumArt = @"albumArt";
+NSString *const kAlbumLocalImage = @"albumArtLocal";
 
 @implementation AlbumLibrary
 
@@ -39,7 +41,10 @@ NSString *const kSongs = @"songs";
                        kDuration: @"4.45",
                        kSongs: @[
                                @"Rolling In The Deep",@"Rumour Has It",@"Turning Tables",@"Don't You Remember", @"Set Fire To The Rain", @"He Won't Go", @"Take It All", @"I'll Be Waiting", @"One And Only", @"Lovesong", @"Someone Like You", @"I Found A Boy"
-                               ]
+                               ],
+                    '   kAlbumArt: @"https://fontmeme.com/images/21-by-Adele.jpg",
+                       kAlbumLocalImage: @"Adele_21"
+                       
                     },@{kAlbumName: @"DAMN",
                         kYear: @"2017",
                         kGenre: @"Hip-hop/Rap",

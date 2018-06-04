@@ -13,92 +13,88 @@
 @interface LibraryCollectionViewCell ()
 
 @property (nonatomic, strong) UIImageView *albumImageView;
-
+@property (nonatomic, strong) UIImage *myAlbumImage;
+@property (nonatomic, strong) UILabel *albumTitleLabel;
+@property (nonatomic, strong) UILabel *artistNameLabel;
 
 @end
 
 @implementation LibraryCollectionViewCell
 @synthesize myAlbumImage = _myAlbumImage;
-@synthesize albumTitleLabel = _albumTitleLabel;
+//@synthesize albumTitleLabel = _albumTitleLabel;
 
 
-- (instancetype)init
+- (instancetype)initWithFrame:(CGRect)frame
 {
-    self = [super init];
+    self = [super initWithFrame:frame];
     if (self) {
         
-        _artistNameLabel = [[UILabel alloc] init];
-//        _albumTitleLabel = [[UILabel alloc] init];
-//        [_albumImageView constrainToFillSuperView];
+
     }
     return self;
 }
 
 
-//declaring a getter method that gets called whenever the myAlbumImage property value is accessed
 
--(UIImage *)myAlbumImage {
- 
-    if (_myAlbumImage == nil) {
-        _myAlbumImage = [UIImage imageNamed:@"shuffle-button.png"];
-        _albumImageView = [[UIImageView alloc] initWithImage: _myAlbumImage];
-        [self.contentView addSubview:_albumImageView];
-        [_albumImageView constrainToFillSuperView];
- 
+
+-(void)setAlbum:(Album *)album {
+    
+    _album = album;
+    
+    //if the album art has a URL
+    if (_album.albumArtURL && _album.albumArtURL.length > 0) {
+        //set the image to pull from the URL for the imageView
+        self.myAlbumImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:_album.albumArtURL]]];
     }
- 
-    return self.myAlbumImage;
+    else if (_album.albumArtLocalImgName)//otherwise use the local image stored
+    {
+        self.myAlbumImage = [UIImage imageNamed: _album.albumName];
+    }
+    else {
+        self.myAlbumImage = [UIImage imageNamed:@"shuffle-button.png"];
+    }
+    
+    self.albumTitleLabel = [[UILabel alloc] init];
+    //this sets the content/text of the label
+    self.albumTitleLabel.text = _album.albumName;
+    self.albumTitleLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.contentView addSubview:self.albumTitleLabel];
+    
+    self.artistNameLabel = [[UILabel alloc] init];
+    //this sets the content/text of the label
+    self.artistNameLabel.text = _album.artist;
+    self.artistNameLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.contentView addSubview:self.artistNameLabel];
+    
 }
 
 
 //declaring a setter method which gets called anytime the property is changed
 -(void)setMyAlbumImage:(UIImage *)myAlbumImage {
-        if ( _myAlbumImage == nil) {
-            _myAlbumImage = myAlbumImage;
-            _albumImageView = [[UIImageView alloc] initWithImage: myAlbumImage];
-            _albumImageView.translatesAutoresizingMaskIntoConstraints = NO;
-            [self.contentView addSubview:_albumImageView];
-        }
+    _myAlbumImage = myAlbumImage;
+    _albumImageView = [[UIImageView alloc] initWithImage: _myAlbumImage];
+    _albumImageView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.contentView addSubview:_albumImageView];
 }
 
--(UILabel *)albumTitleLabel {
-    if (_albumTitleLabel == nil) {
-        _albumTitleLabel = [[UILabel alloc] init];
-        _albumTitleLabel.text = @"artist title";
-        _albumTitleLabel.font = [UIFont fontWithName:@"Arial Bold" size:15];
-        _albumTitleLabel.numberOfLines = 1;
-        _albumTitleLabel.translatesAutoresizingMaskIntoConstraints = NO;
-        [self.contentView addSubview:_albumTitleLabel];
-        [self.albumTitleLabel.topAnchor constraintEqualToAnchor:self.albumImageView.bottomAnchor constant:3].active = YES;
 
-    }
-    return _albumTitleLabel;
-}
-
--(UILabel *)artistNameLabel {
-    if (_artistNameLabel == nil) {
-        _artistNameLabel = [[UILabel alloc] init];
-        _artistNameLabel.text =  self.album.artist[0];
-        _artistNameLabel.font = [UIFont fontWithName:@"Arial Bold" size:15];
-        _artistNameLabel.numberOfLines = 1;
-        _artistNameLabel.translatesAutoresizingMaskIntoConstraints = NO;
-        [self.contentView addSubview:_artistNameLabel];
-        [self.artistNameLabel.topAnchor constraintEqualToAnchor:self.albumTitleLabel.bottomAnchor constant:3].active = YES;
-    }
-    return _artistNameLabel;
-}
 
 -(void)layoutSubviews {
+    
+    
+    
     [super layoutSubviews];
-    if (self.albumImageView && self.albumImageView.superview) {
-        [self.albumImageView constrainToFillSuperView];
-        
-    }
+    [self.albumImageView constrainToFillSuperViewWithHeightMultiplier:0.79];
+    
+    [self.albumTitleLabel.widthAnchor constraintEqualToAnchor:self.albumTitleLabel.superview.widthAnchor].active = YES;
+//    [self.albumTitleLabel.heightAnchor constraintEqualToConstant:10].active = YES;
+    [self.albumTitleLabel.topAnchor constraintEqualToAnchor:self.albumImageView.bottomAnchor constant:3].active = YES;
+    [self.artistNameLabel.topAnchor constraintEqualToAnchor:self.albumTitleLabel.bottomAnchor constant:3].active = YES;
+    [self.artistNameLabel.widthAnchor constraintEqualToAnchor:self.artistNameLabel.superview.widthAnchor].active = YES;
+    
+//    [self.artistNameLabel.heightAnchor constraintEqualToConstant:10].active = YES;
+    
 }
 
--(void)prepareForReuse
-{
-    [super prepareForReuse];
-}
 
 @end

@@ -10,16 +10,17 @@
 #import "AppDelegate.h"
 #import "LibraryCollectionViewCell.h"
 #import "Album.h"
+#import "AlbumLibrary.h"
 
-@interface MainViewController () <UICollectionViewDelegateFlowLayout, UICollectionViewDataSource>
+@interface MainViewController () <UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (nonatomic, strong) UILabel *albumLabel;
 @property (nonatomic, strong) UIButton *playButton;
 @property (nonatomic, strong) UIButton *shuffleButton;
 @property (nonatomic, strong) UIImageView *playButtonImage;
 @property (nonatomic, strong) UIImageView *shuffleButtonImage;
-@property (nonatomic, strong) UIImageView *mainAlbumView;
 @property (nonatomic, strong) UICollectionView *collectionView;
+
 
 @end
 
@@ -47,9 +48,13 @@
     [self.collectionView setDataSource:self];
     [self.collectionView setDelegate:self];
     
-    self.album = [[Album alloc] init];
+    [self.collectionView reloadData];
     
     [self.view addSubview:self.collectionView];
+    
+//    self.albumData = [[NSArray alloc] init];
+//   album.artist = self.albumData;
+    
     
     
     UILabel *label = [[UILabel alloc] init];
@@ -121,24 +126,20 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 10;
+    return [[AlbumLibrary sharedInstance] library].count;
 }
 
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     LibraryCollectionViewCell *newLibraryCell = (LibraryCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"libraryCell" forIndexPath:indexPath];
-    
-    newLibraryCell.myAlbumImage = [UIImage imageNamed:@"shuffle-button.png"];
-    
 
-    newLibraryCell.albumTitleLabel.text = @"album title";
-    newLibraryCell.artistNameLabel.text = self.album.artist[0];
+    NSDictionary * currentAlbumDictionaryData = [[[AlbumLibrary sharedInstance] library] objectAtIndex:indexPath.row];
     
-//    newLibraryCell.artistNameLabel.text = [self.album.artist objectAtIndex:indexPath.row];
-    
-    
+    Album *currentAlbum = [[Album alloc] initWithDictionary: currentAlbumDictionaryData];
 
+    newLibraryCell.album = currentAlbum;
+    
    return newLibraryCell;
 }
 

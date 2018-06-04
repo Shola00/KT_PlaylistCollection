@@ -15,6 +15,8 @@ extern NSString *const kGenre;
 extern NSString *const kArtist;
 extern NSString *const kDuration;
 extern NSString *const kSongs;
+extern NSString *const kAlbumArt;
+extern NSString *const kAlbumLocalImage;
 
 @interface AlbumLibrary : NSObject
 

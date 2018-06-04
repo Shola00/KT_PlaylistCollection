@@ -13,8 +13,12 @@
 @property (strong, nonatomic) NSString *albumName;
 @property (strong, nonatomic) NSNumber *year;
 @property (strong, nonatomic) NSString *genre;
-@property (strong, nonatomic) NSArray *artist;
+@property (strong, nonatomic) NSString *artist;
 @property (strong, nonatomic) NSNumber *duration;
 @property (strong, nonatomic) NSString *songs;
+@property (nonatomic, strong) NSString *albumArtURL;
+@property (nonatomic, strong) NSString *albumArtLocalImgName;
+
+- (instancetype)initWithDictionary:(NSDictionary *)albumDictionary;
 
 @end

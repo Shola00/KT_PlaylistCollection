@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		74AEA6AA20C57EBD009B491B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74AEA6A920C57EBD009B491B /* Images.xcassets */; };
 		74FB718420C15A43007712F3 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FB718020C15A42007712F3 /* MainViewController.m */; };
 		74FB718520C15A43007712F3 /* AlbumDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FB718120C15A42007712F3 /* AlbumDetailViewController.m */; };
 		74FB718A20C15A96007712F3 /* UIView+ExtraLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FB718820C15A96007712F3 /* UIView+ExtraLayout.m */; };
@@ -14,7 +15,6 @@
 		74FB719820C15AB2007712F3 /* AlbumLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FB719120C15AB2007712F3 /* AlbumLibrary.m */; };
 		74FB719920C15AB2007712F3 /* LibraryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FB719320C15AB2007712F3 /* LibraryCollectionViewCell.m */; };
 		74FFA0CD20C01EAA0092A05E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FFA0CC20C01EAA0092A05E /* AppDelegate.m */; };
-		74FFA0D520C01EAA0092A05E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74FFA0D420C01EAA0092A05E /* Assets.xcassets */; };
 		74FFA0D820C01EAA0092A05E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74FFA0D620C01EAA0092A05E /* LaunchScreen.storyboard */; };
 		74FFA0DB20C01EAA0092A05E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FFA0DA20C01EAA0092A05E /* main.m */; };
 		74FFA0E520C01EAA0092A05E /* albumlibrarytwoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FFA0E420C01EAA0092A05E /* albumlibrarytwoTests.m */; };
@@ -39,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		74AEA6A920C57EBD009B491B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		74FB718020C15A42007712F3 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		74FB718120C15A42007712F3 /* AlbumDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumDetailViewController.m; sourceTree = "<group>"; };
 		74FB718220C15A42007712F3 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -54,7 +55,6 @@
 		74FFA0C820C01EAA0092A05E /* albumlibrarytwo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = albumlibrarytwo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74FFA0CB20C01EAA0092A05E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		74FFA0CC20C01EAA0092A05E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		74FFA0D420C01EAA0092A05E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		74FFA0D720C01EAA0092A05E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		74FFA0D920C01EAA0092A05E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74FFA0DA20C01EAA0092A05E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -152,10 +152,10 @@
 				74FB718720C15A71007712F3 /* Categories */,
 				74FFA0CB20C01EAA0092A05E /* AppDelegate.h */,
 				74FFA0CC20C01EAA0092A05E /* AppDelegate.m */,
-				74FFA0D420C01EAA0092A05E /* Assets.xcassets */,
 				74FFA0D620C01EAA0092A05E /* LaunchScreen.storyboard */,
 				74FFA0D920C01EAA0092A05E /* Info.plist */,
 				74FFA0DA20C01EAA0092A05E /* main.m */,
+				74AEA6A920C57EBD009B491B /* Images.xcassets */,
 			);
 			path = albumlibrarytwo;
 			sourceTree = "<group>";
@@ -285,7 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				74FFA0D820C01EAA0092A05E /* LaunchScreen.storyboard in Resources */,
-				74FFA0D520C01EAA0092A05E /* Assets.xcassets in Resources */,
+				74AEA6AA20C57EBD009B491B /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

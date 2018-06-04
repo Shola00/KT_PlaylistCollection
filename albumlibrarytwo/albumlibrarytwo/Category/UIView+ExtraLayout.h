@@ -11,5 +11,8 @@
 @interface UIView (ExtraLayout)
 
 -(void)constrainToFillSuperView;
+-(void)constrainToFillSuperViewWithHeightMultiplier:(double)multiplier;
+-(void)constrainToFillSuperViewWithWidthMultiplier:(double)multiplier;
+-(void)constrainToFillSuperViewWithWidthMultiplier:(double)wMultiplier heightMultiplier:(double)hMultiplier;
 
 @end
