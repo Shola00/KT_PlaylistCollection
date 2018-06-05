@@ -151,7 +151,7 @@ NSString *const kAlbumLocalImage = @"albumArtLocal";
                        kSongs: @[
                                @"Pray You Catch Me",@"Hold Up",@"Don't Hurt Yourself (feat. Jack White)",@"Sorry", @"6 Inch (feat. The Weeknd)", @"Daddy Lessons", @"Love Drought", @"Sandcastles", @"Forward (feat. James Blake)", @"Freedom (feat. Kendrick Lamar)"
                                ]
-                   },@{kAlbumName: @"STARBOY",
+                   },@{kAlbumName: @"STAR BOY",
                        kYear: @"2016",
                        kGenre: @"Pop",
                        kArtist: @"The Weeknd",
