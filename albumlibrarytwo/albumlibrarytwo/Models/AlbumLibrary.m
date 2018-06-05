@@ -88,7 +88,7 @@ NSString *const kAlbumLocalImage = @"albumArtLocal";
                        kSongs: @[
                                @"Famous",@"Close My Eyes",@"Bank Account", @"Bad Business", @"Baby Girl", @"Thug Life", @"FaceTime", @"Nothin New", @"Numb", @"Dead People"
                                ]
-                   },@{kAlbumName: @"WINS & LOSSES",
+                   },@{kAlbumName: @"WINS AND LOSSES",
                        kYear: @"2017",
                        kGenre: @"Hip-Hop/Rap",
                        kArtist: @"Meek Mill",
@@ -128,7 +128,7 @@ NSString *const kAlbumLocalImage = @"albumArtLocal";
                        kSongs: @[
                                @"With Them",@"Memo",@"Drippin'",@"Slime S**t (feat. Yak Gotti, Duke & Peewee Roscoe)", @"Digits", @"Worth It", @"Tattoos", @"Problem"
                                ]
-                   },@{kAlbumName: @"ANTI ",
+                   },@{kAlbumName: @"ANTI",
                        kYear: @"2016",
                        kGenre: @"Pop",
                        kArtist: @"Rihanna",

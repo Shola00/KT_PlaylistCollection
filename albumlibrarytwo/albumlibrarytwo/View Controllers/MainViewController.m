@@ -37,6 +37,11 @@
     self.navigationController.navigationBar.shadowImage = [UIImage new];
     self.navigationController.navigationBar.translucent = YES;
     self.navigationController.view.backgroundColor = [UIColor clearColor];
+    self.title = @"Albums";
+    self.navigationItem.titleView = [[UIView alloc] init];
+    
+    
+    
     
     UICollectionViewFlowLayout *layout=[[UICollectionViewFlowLayout alloc] init];
     self.collectionView=[[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
@@ -53,8 +58,7 @@
     
     [self.view addSubview:self.collectionView];
     
-//    self.albumData = [[NSArray alloc] init];
-//   album.artist = self.albumData;
+
     
     
     
@@ -146,7 +150,11 @@
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"Cell Was Tapped at index %li", indexPath.row);
+    
+   // NSLog(@"Cell Was Tapped at index %li", indexPath.row);
+    
+    AlbumDetailViewController *detailViewController = [[AlbumDetailViewController alloc] init];
+    [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
 -(void)viewWillLayoutSubviews {

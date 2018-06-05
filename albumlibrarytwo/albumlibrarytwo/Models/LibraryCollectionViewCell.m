@@ -40,7 +40,7 @@
         self.myAlbumImage = [UIImage imageNamed: _album.albumName];
     }
     else {
-        self.myAlbumImage = [UIImage imageNamed:@"shuffle-button.png"];
+        self.myAlbumImage = [UIImage imageNamed:@"DEFAULT IMAGE"];
     }
     
     if (!self.albumTitleLabel) {
