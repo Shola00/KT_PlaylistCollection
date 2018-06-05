@@ -24,17 +24,6 @@
 //@synthesize albumTitleLabel = _albumTitleLabel;
 
 
-- (instancetype)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        
-
-    }
-    return self;
-}
-
-
 
 
 -(void)setAlbum:(Album *)album {
@@ -54,17 +43,29 @@
         self.myAlbumImage = [UIImage imageNamed:@"shuffle-button.png"];
     }
     
-    self.albumTitleLabel = [[UILabel alloc] init];
+    if (!self.albumTitleLabel) {
+        self.albumTitleLabel = [[UILabel alloc] init];
+        self.albumTitleLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    }
+    
     //this sets the content/text of the label
     self.albumTitleLabel.text = _album.albumName;
-    self.albumTitleLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.contentView addSubview:self.albumTitleLabel];
+    if (!self.albumTitleLabel.superview) {
+        [self.contentView addSubview:self.albumTitleLabel];
+    }
     
-    self.artistNameLabel = [[UILabel alloc] init];
+   
+    if (!self.artistNameLabel) {
+        self.artistNameLabel = [[UILabel alloc] init];
+        self.artistNameLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    }
     //this sets the content/text of the label
     self.artistNameLabel.text = _album.artist;
-    self.artistNameLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.contentView addSubview:self.artistNameLabel];
+    
+    if (!self.artistNameLabel.superview) {
+        [self.contentView addSubview:self.artistNameLabel];
+    }
+    
     
 }
 

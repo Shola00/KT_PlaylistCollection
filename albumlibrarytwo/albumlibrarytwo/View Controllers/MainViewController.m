@@ -11,6 +11,7 @@
 #import "LibraryCollectionViewCell.h"
 #import "Album.h"
 #import "AlbumLibrary.h"
+#import "AlbumDetailViewController.h"
 
 @interface MainViewController () <UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -133,6 +134,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     LibraryCollectionViewCell *newLibraryCell = (LibraryCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"libraryCell" forIndexPath:indexPath];
+   
 
     NSDictionary * currentAlbumDictionaryData = [[[AlbumLibrary sharedInstance] library] objectAtIndex:indexPath.row];
     
@@ -143,6 +145,9 @@
    return newLibraryCell;
 }
 
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"Cell Was Tapped at index %li", indexPath.row);
+}
 
 -(void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];

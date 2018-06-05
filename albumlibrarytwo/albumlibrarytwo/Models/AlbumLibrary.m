@@ -42,7 +42,7 @@ NSString *const kAlbumLocalImage = @"albumArtLocal";
                        kSongs: @[
                                @"Rolling In The Deep",@"Rumour Has It",@"Turning Tables",@"Don't You Remember", @"Set Fire To The Rain", @"He Won't Go", @"Take It All", @"I'll Be Waiting", @"One And Only", @"Lovesong", @"Someone Like You", @"I Found A Boy"
                                ],
-                    '   kAlbumArt: @"https://fontmeme.com/images/21-by-Adele.jpg",
+                       kAlbumArt: @"https://fontmeme.com/images/21-by-Adele.jpg",
                        kAlbumLocalImage: @"Adele_21"
                        
                     },@{kAlbumName: @"DAMN",
@@ -64,7 +64,7 @@ NSString *const kAlbumLocalImage = @"albumArtLocal";
                                @"Kill Jay Z",@"The Story of O.J",@"Smile (feat. Gloria Carter)",@"Caught Their Eyes (feat. Frank Ocean)", @"4:44", @"Family Feud (feat. Beyoncé)", @"Bam (feat. Damian Jr. Gong Marley)", @"Moonlight", @"Marcy Me", @"Legacy"
                                ]
                    },
-                     @{kAlbumName: @"More Life",
+                     @{kAlbumName: @"MORE LIFE",
                        kYear: @"2011",
                        kGenre: @"Hip-Hop/Rap",
                        kArtist: @"Drake",
@@ -72,7 +72,7 @@ NSString *const kAlbumLocalImage = @"albumArtLocal";
                        kSongs: @[
                                @"Free Smoke",@"No Long Talk (feat. Giggs)",@"Passionfruit",@"Jorja Interlude", @"Get It Together (feat. Black Coffee & Jorja Smith)", @"Madiba Riddim", @"Blem", @"Gyalchester", @"Portland (feat. Quavo & Travis Scott)"
                                ]
-                   },@{kAlbumName: @"Pretty Girls Like Trap Music",
+                   },@{kAlbumName: @"PRETTY GIRLS LIKE TRAP MUSIC",
                        kYear: @"2017",
                        kGenre: @"Hip-Hop/Rap",
                        kArtist: @"2 Chainz",
@@ -80,7 +80,7 @@ NSString *const kAlbumLocalImage = @"albumArtLocal";
                        kSongs: @[
                                @"Saturday Night",@"Riverdale Rd",@"Good Drank (feat. Gucci Mane & Quavo)",@"4 AM (feat. Travis Scott)", @"Door Swangin", @"Realize (feat. Nicki Minaj)", @"Big Amount (feat. Drake)", @"It's a Vibe (feat. Ty Dolla $ign, Trey Songz & Jhené Aiko)", @"Rolls Royce Bitch"
                                ]
-                   },@{kAlbumName: @"Issa Album",
+                   },@{kAlbumName: @"ISSA ALBUM",
                        kYear: @"2017",
                        kGenre: @"Hip-Hop/Rap",
                        kArtist: @"21 Savage",
@@ -88,7 +88,7 @@ NSString *const kAlbumLocalImage = @"albumArtLocal";
                        kSongs: @[
                                @"Famous",@"Close My Eyes",@"Bank Account", @"Bad Business", @"Baby Girl", @"Thug Life", @"FaceTime", @"Nothin New", @"Numb", @"Dead People"
                                ]
-                   },@{kAlbumName: @"Wins & Losses",
+                   },@{kAlbumName: @"WINS & LOSSES",
                        kYear: @"2017",
                        kGenre: @"Hip-Hop/Rap",
                        kArtist: @"Meek Mill",
@@ -96,7 +96,7 @@ NSString *const kAlbumLocalImage = @"albumArtLocal";
                        kSongs: @[
                                @"Wins & Losses",@"Heavy Heart",@"F**k That Check Up (feat. Lil Uzi Vert)",@"Whatever You Need (feat. Chris Brown & Ty Dolla $ign)", @"1942 Flows", @"Issues", @"We Ball (feat. Young Thug)", @"These Scars (feat. Future & Guordan Banks)", @"Connect the Dots (feat. Yo Gotti & Rick Ross)", @"Fall Thru"
                                ]
-                   },@{kAlbumName: @"True to Self",
+                   },@{kAlbumName: @"TRUE TO SELF",
                        kYear: @"2017",
                        kGenre: @"R&B/Soul",
                        kArtist: @"Bryson Tiller",
@@ -104,7 +104,7 @@ NSString *const kAlbumLocalImage = @"albumArtLocal";
                        kSongs: @[
                                @"Rain On Me (Intro)",@"No Longer Friends",@"Don't Get Too High",@"Blowing Smoke", @"We Both Know", @"You Got It", @"In Check", @"Self-Made", @"Run Me Dry", @"High Stakes"
                                ]
-                   },@{kAlbumName: @"Birds in the Trap Sing McKnight",
+                   },@{kAlbumName: @"BIRDS IN THE TRAP SING McKNIGHT",
                        kYear: @"2016",
                        kGenre: @"Hip-Hop/Rap",
                        kArtist: @"Travis Scott",
@@ -112,7 +112,7 @@ NSString *const kAlbumLocalImage = @"albumArtLocal";
                        kSongs: @[
                                @"the ends",@"way back",@"coordinate",@"through the late night", @"beibs in the trap", @"sweet sweet", @"outside", @"goosebumps", @"first take", @"pick up the phone", @"lose", @"guidance"
                                ]
-                   },@{kAlbumName: @"4 Your Eyez Only",
+                   },@{kAlbumName: @"4 YOUR EYEZ ONLY",
                        kYear: @"2016",
                        kGenre: @"Hip-Hop/Rap",
                        kArtist: @"J. Cole",
@@ -120,7 +120,7 @@ NSString *const kAlbumLocalImage = @"albumArtLocal";
                        kSongs: @[
                                @"For Whom the Bell Tolls",@"Immortal",@"Deja Vu",@"Ville Mentality", @"She's Mine, Pt. 1", @"Change", @"Neighbors", @"Foldin Clothes", @"She's Mine, Pt. 2", @"4 Your Eyez Only"
                                ]
-                   },@{kAlbumName: @"Slime Season 3",
+                   },@{kAlbumName: @"SLIME SEASON 3",
                        kYear: @"2016",
                        kGenre: @"Hip-Hop",
                        kArtist: @"Young Thug",
@@ -136,7 +136,7 @@ NSString *const kAlbumLocalImage = @"albumArtLocal";
                        kSongs: @[
                                @"Consideration (feat. SZA)",@"James Joint",@"Kiss It Better",@"Work (feat. Drake)", @"Desperado", @"Woo", @"Needed Me", @"Yeah, I Said It", @"Same Ol’ Mistakes", @"Never Ending"
                                ]
-                   },@{kAlbumName: @"I Told You",
+                   },@{kAlbumName: @"I TOLD YOU",
                        kYear: @"2016",
                        kGenre: @"Hip-Hop",
                        kArtist: @"Tory Lanez",
@@ -144,7 +144,7 @@ NSString *const kAlbumLocalImage = @"albumArtLocal";
                        kSongs: @[
                                @"I Told You / Another One",@"Guns and Roses",@"Flex",@"To D.R.E.A.M", @"4am Flex", @"Friends with Benefits", @"Cold Hard Love", @"High", @"Dirty Money", @"Question Is"
                                ]
-                   },@{kAlbumName: @"Lemonade",
+                   },@{kAlbumName: @"LEMONADE",
                        kYear: @"2016",
                        kGenre: @"Pop",
                        kArtist: @"Adele",
@@ -152,7 +152,7 @@ NSString *const kAlbumLocalImage = @"albumArtLocal";
                        kSongs: @[
                                @"Pray You Catch Me",@"Hold Up",@"Don't Hurt Yourself (feat. Jack White)",@"Sorry", @"6 Inch (feat. The Weeknd)", @"Daddy Lessons", @"Love Drought", @"Sandcastles", @"Forward (feat. James Blake)", @"Freedom (feat. Kendrick Lamar)"
                                ]
-                   },@{kAlbumName: @"Starboy",
+                   },@{kAlbumName: @"STARBOY",
                        kYear: @"2016",
                        kGenre: @"Pop",
                        kArtist: @"The Weeknd",
@@ -160,7 +160,7 @@ NSString *const kAlbumLocalImage = @"albumArtLocal";
                        kSongs: @[
                                @"Starboy (feat. Daft Punk)",@"Party Monster",@"False Alarm",@"Reminder", @"Rockin’", @"Secrets", @"True Colors", @"Stargirl Interlude (feat. Lana Del Rey)", @"Sidewalks (feat. Kendrick Lamar)", @"Six Feet Under"
                                ]
-                   },@{kAlbumName: @"Know-It-All",
+                   },@{kAlbumName: @"KNOW IT ALL",
                        kYear: @"2015",
                        kGenre: @"Pop",
                        kArtist: @"Alessia Cara",
@@ -168,7 +168,7 @@ NSString *const kAlbumLocalImage = @"albumArtLocal";
                        kSongs: @[
                                @"Seventeen",@"Here",@"Outlaws",@"I'm Yours", @"Four Pink Walls", @"Wild Things", @"Stone (feat. Sebastian Kole)", @"Overdoseg", @"Stars", @"Scars to Your Beautiful"
                                ]
-                   },@{kAlbumName: @"The Life of Pablo",
+                   },@{kAlbumName: @"THE LIFE OF PABLO",
                        kYear: @"2011",
                        kGenre: @"Hip-Hop/Rap",
                        kArtist: @"Kanye West",
