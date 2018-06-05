@@ -10,7 +10,7 @@
 
 @class Album;
 @interface AlbumDetailViewController : UIViewController
-@property (strong, nonatomic) Album *myalbum;
+@property (strong, nonatomic) Album *album;
 
 
 @end

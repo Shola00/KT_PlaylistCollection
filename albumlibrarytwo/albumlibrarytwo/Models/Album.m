@@ -54,5 +54,4 @@
     return albumImage;
 }
 
-
 @end

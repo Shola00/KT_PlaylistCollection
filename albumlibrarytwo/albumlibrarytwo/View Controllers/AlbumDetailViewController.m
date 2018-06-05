@@ -23,6 +23,7 @@
 @property (nonatomic, strong) UIButton *playButton;
 @property (nonatomic, strong) UIButton *shuffleBUtton;
 @property (nonatomic, strong) UILabel *songLabel;
+@property (nonatomic, strong) UILabel *dotLabel;
 
 @end
 
@@ -43,21 +44,23 @@
     
     
     self.albumArtImageView = [[UIImageView alloc] init];
-    self.albumArtImageView.image = [self.myalbum getAlbumImage];
+    self.albumArtImageView.image = [self.album getAlbumImage];
     self.albumArtImageView.translatesAutoresizingMaskIntoConstraints = NO;
     self.albumArtImageView.backgroundColor = [UIColor colorWithRed:(248/255.0) green:(247/255.0) blue:(251/255.0) alpha:1];
     self.albumArtImageView.layer.cornerRadius = 10;
     [self.view addSubview:self.albumArtImageView];
+    
+    //pass the exact album image name, artist name, genre label and year label to the detail view controller
     
     /*
      creating four UIlabels for Album Title, Artist Name, Genre and year.
      */
     
     self.albumNameLabel = [[UILabel alloc] init];
-    self.albumNameLabel.text = @"AlbumName";
     self.albumNameLabel.font = [UIFont fontWithName:@"Helvetica" size:18];
     self.albumNameLabel.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview: self.albumNameLabel];
+    self.albumNameLabel.text = self.album.albumName;
     
     self.artistLabel = [[UILabel alloc] init];
     self.artistLabel.text = @"artistLabel";
@@ -65,6 +68,7 @@
     self.artistLabel.font = [UIFont fontWithName:@"Helvetica" size:18];
     self.artistLabel.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview: self.artistLabel];
+    self.artistLabel.text = self.album.artist;
 
     self.genreLabel = [[UILabel alloc] init];
     self.genreLabel.text = @"genreLabel";
@@ -72,7 +76,7 @@
     self.genreLabel.font = [UIFont fontWithName:@"Helvetica" size:18];
     self.genreLabel.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview: self.genreLabel];
-
+    self.genreLabel.text = self.album.genre;
     
     self.yearLabel = [[UILabel alloc] init];
     self.yearLabel.text = @"yearLabel";
@@ -80,6 +84,23 @@
     self.yearLabel.font = [UIFont fontWithName:@"Helvetica" size:18];
     self.yearLabel.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview: self.yearLabel];
+    self.yearLabel.text = [NSString stringWithFormat:@"%@", self.album.year];
+    
+    //creating the dot with a label
+    self.dotLabel = [[UILabel alloc] init];
+    self.dotLabel.text = @".";
+    self.dotLabel.textColor = [UIColor colorWithRed:(135/255.0) green:(135/255.0) blue:(138/255.0) alpha:1];
+    self.dotLabel.font = [UIFont fontWithName:@"Helvetica-bold" size:45];
+    self.dotLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addSubview: self.dotLabel];
+    self.dotLabel.numberOfLines = 0;
+    [self.dotLabel sizeToFit];
+    self.dotLabel.textAlignment = NSTextAlignmentCenter;
+
+    
+    
+    
+    
 
     
     
@@ -138,11 +159,24 @@
     //the top anchor of the artist label is constraint to the bottom anchor of albumName with contant (n)
     [self.genreLabel.topAnchor constraintEqualToAnchor:self.artistLabel.bottomAnchor constant:2].active = YES;
     
-    //1, the left anchor of the artist label is constraint to the right anchor of the albumImageView with constant(n)
-    [self.yearLabel.leftAnchor constraintEqualToAnchor:self.genreLabel.rightAnchor constant:8].active = YES;
     
-    //the top anchor of the artist label is constraint to the bottom anchor of albumName with contant (n)
-    [self.yearLabel.topAnchor constraintEqualToAnchor:self.artistLabel.bottomAnchor constant:2].active = YES;
+    
+    [self.dotLabel.leftAnchor constraintEqualToAnchor:self.genreLabel.rightAnchor constant:4].active = YES;
+    
+    //1, the left anchor of the dot label is constraint to the right anchor of the yearLabel with constant(n)
+    
+    [self.dotLabel.centerYAnchor constraintEqualToAnchor:self.genreLabel.centerYAnchor].active = YES;
+    
+    //[self.dotLabel.heightAnchor constraintEqualToConstant:20].active = YES;
+    
+    //1, the left anchor of the artist label is constraint to the right anchor of the albumImageView with constant(n)
+    [self.yearLabel.leftAnchor constraintEqualToAnchor:self.dotLabel.rightAnchor constant:4].active = YES;
+
+    //the top anchor of the yearLabel is constraint to the bottom anchor of artistLabel with contant (n)
+    [self.yearLabel.centerYAnchor constraintEqualToAnchor:self.genreLabel.centerYAnchor].active = YES;
+
+    
+   
     
     
     

@@ -157,7 +157,7 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
     AlbumDetailViewController *detailViewController = [[AlbumDetailViewController alloc] init];
-    detailViewController.myalbum = [self getAlbumWithIndex:indexPath.row];
+    detailViewController.album = [self getAlbumWithIndex:indexPath.row];
     [self.navigationController pushViewController:detailViewController animated:YES];
     
 }
