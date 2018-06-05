@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface Album : NSObject
 
@@ -20,5 +21,6 @@
 @property (nonatomic, strong) NSString *albumArtLocalImgName;
 
 - (instancetype)initWithDictionary:(NSDictionary *)albumDictionary;
+-(UIImage *)getAlbumImage;
 
 @end

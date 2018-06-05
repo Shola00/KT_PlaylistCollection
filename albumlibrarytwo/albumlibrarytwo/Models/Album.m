@@ -37,5 +37,22 @@
 }
 
 
+-(UIImage *)getAlbumImage {
+    
+    UIImage *albumImage = nil;
+    
+    if (self.albumArtURL && self.albumArtURL.length > 0) {
+        albumImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString: self.albumArtURL]]];
+    }
+    else if(self.albumName && self.albumName.length > 0){
+        albumImage = [UIImage imageNamed:self.albumName];
+    }
+    else {
+        albumImage = [UIImage imageNamed:@"DEFAULT IMAGE"];
+    }
+    
+    return albumImage;
+}
+
 
 @end

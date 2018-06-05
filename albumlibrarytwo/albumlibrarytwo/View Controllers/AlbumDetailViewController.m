@@ -8,6 +8,9 @@
 
 #import "AlbumDetailViewController.h"
 #import "AppDelegate.h"
+#import "AlbumLibrary.h"
+#import "Album.h"
+
 
 @interface AlbumDetailViewController ()
 
@@ -24,6 +27,8 @@
 @end
 
 @implementation AlbumDetailViewController
+@synthesize albumArtImage = _albumArtImage;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -38,21 +43,14 @@
     
     
     self.albumArtImageView = [[UIImageView alloc] init];
+    self.albumArtImageView.image = [self.myalbum getAlbumImage];
     self.albumArtImageView.translatesAutoresizingMaskIntoConstraints = NO;
     self.albumArtImageView.backgroundColor = [UIColor colorWithRed:(248/255.0) green:(247/255.0) blue:(251/255.0) alpha:1];
     self.albumArtImageView.layer.cornerRadius = 10;
     [self.view addSubview:self.albumArtImageView];
     
-
-    
-    
-    
-    
-    
-    
-    
-    
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -66,8 +64,6 @@
     
         CGSize albumArtImageViewSize = CGSizeMake(156, 156);
     /*
-     
-     
      
      
      */

@@ -135,26 +135,31 @@
 }
 
 
+-(Album *)getAlbumWithIndex:(NSInteger)index
+{
+    NSDictionary * currentAlbumDictionaryData = [[[AlbumLibrary sharedInstance] library] objectAtIndex:index];
+    
+    Album *currentAlbum = [[Album alloc] initWithDictionary: currentAlbumDictionaryData];
+    
+    return currentAlbum;
+}
+
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     LibraryCollectionViewCell *newLibraryCell = (LibraryCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"libraryCell" forIndexPath:indexPath];
-   
 
-    NSDictionary * currentAlbumDictionaryData = [[[AlbumLibrary sharedInstance] library] objectAtIndex:indexPath.row];
-    
-    Album *currentAlbum = [[Album alloc] initWithDictionary: currentAlbumDictionaryData];
-
-    newLibraryCell.album = currentAlbum;
+    newLibraryCell.album = [self getAlbumWithIndex:indexPath.row];
     
    return newLibraryCell;
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
-   // NSLog(@"Cell Was Tapped at index %li", indexPath.row);
-    
     AlbumDetailViewController *detailViewController = [[AlbumDetailViewController alloc] init];
+    detailViewController.myalbum = [self getAlbumWithIndex:indexPath.row];
     [self.navigationController pushViewController:detailViewController animated:YES];
+    
 }
 
 -(void)viewWillLayoutSubviews {

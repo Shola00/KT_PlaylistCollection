@@ -35,11 +35,12 @@
         //set the image to pull from the URL for the imageView
         self.myAlbumImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:_album.albumArtURL]]];
     }
-    else if (_album.albumArtLocalImgName)//otherwise use the local image stored
+    else if (_album.albumName && _album.albumName.length > 0)//otherwise use the local image stored
     {
         self.myAlbumImage = [UIImage imageNamed: _album.albumName];
     }
-    else {
+    else
+    {
         self.myAlbumImage = [UIImage imageNamed:@"DEFAULT IMAGE"];
     }
     

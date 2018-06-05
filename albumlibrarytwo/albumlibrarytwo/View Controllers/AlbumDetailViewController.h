@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class Album;
 @interface AlbumDetailViewController : UIViewController
+@property (strong, nonatomic) Album *myalbum;
+
 
 @end
