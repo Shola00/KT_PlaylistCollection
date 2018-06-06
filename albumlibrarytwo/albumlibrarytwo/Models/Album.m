@@ -24,7 +24,7 @@
         _artist = [albumDictionary objectForKey:kArtist];
         _genre = [albumDictionary objectForKey:kGenre ];
         _year = [albumDictionary objectForKey:kYear];
-        _songs = [albumDictionary objectForKey:kSongs];
+        _songs = [NSArray arrayWithArray:[albumDictionary objectForKey:kSongs]];
         _duration = [albumDictionary objectForKey:kDuration];
         NSString *albumArtURL = (NSString *)[albumDictionary objectForKey:kAlbumArt];
         NSString *albumArtLocalImgName = (NSString *)[albumDictionary objectForKey:kAlbumLocalImage];

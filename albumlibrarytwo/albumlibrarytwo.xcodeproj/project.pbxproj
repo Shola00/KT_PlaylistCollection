@@ -19,6 +19,7 @@
 		74FFA0DB20C01EAA0092A05E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FFA0DA20C01EAA0092A05E /* main.m */; };
 		74FFA0E520C01EAA0092A05E /* albumlibrarytwoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FFA0E420C01EAA0092A05E /* albumlibrarytwoTests.m */; };
 		74FFA0F020C01EAA0092A05E /* albumlibrarytwoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FFA0EF20C01EAA0092A05E /* albumlibrarytwoUITests.m */; };
+		74FFFA4A20C82EBF00D1B656 /* SongsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FFFA4920C82EBF00D1B656 /* SongsTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,8 @@
 		74FFA0EB20C01EAA0092A05E /* albumlibrarytwoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = albumlibrarytwoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		74FFA0EF20C01EAA0092A05E /* albumlibrarytwoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = albumlibrarytwoUITests.m; sourceTree = "<group>"; };
 		74FFA0F120C01EAA0092A05E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		74FFFA4820C82EBF00D1B656 /* SongsTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SongsTableViewCell.h; sourceTree = "<group>"; };
+		74FFFA4920C82EBF00D1B656 /* SongsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SongsTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +123,8 @@
 				74FB719120C15AB2007712F3 /* AlbumLibrary.m */,
 				74FB719220C15AB2007712F3 /* LibraryCollectionViewCell.h */,
 				74FB719320C15AB2007712F3 /* LibraryCollectionViewCell.m */,
+				74FFFA4820C82EBF00D1B656 /* SongsTableViewCell.h */,
+				74FFFA4920C82EBF00D1B656 /* SongsTableViewCell.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -318,6 +323,7 @@
 				74FB718420C15A43007712F3 /* MainViewController.m in Sources */,
 				74FFA0CD20C01EAA0092A05E /* AppDelegate.m in Sources */,
 				74FB719820C15AB2007712F3 /* AlbumLibrary.m in Sources */,
+				74FFFA4A20C82EBF00D1B656 /* SongsTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

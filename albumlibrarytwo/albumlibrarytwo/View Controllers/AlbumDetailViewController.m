@@ -11,9 +11,10 @@
 #import "AlbumLibrary.h"
 #import "Album.h"
 #import "MainViewController.h"
+#import "SongsTableViewCell.h"
 
 
-@interface AlbumDetailViewController ()
+@interface AlbumDetailViewController () <UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) UIImageView *albumArtImageView;
 @property (nonatomic, strong) UIImage *albumArtImage;
@@ -23,10 +24,12 @@
 @property (nonatomic, strong) UILabel *yearLabel;
 @property (nonatomic, strong) UIButton *playButton;
 @property (nonatomic, strong) UIButton *shuffleButton;
-@property (nonatomic, strong) UILabel *songLabel;
 @property (nonatomic, strong) UIImageView *dotImage;
 @property (nonatomic, strong) UIImageView *playButtonImage;
 @property (nonatomic, strong) UIImageView *shuffleButtonImage;
+@property (nonatomic, strong) UITableView *songsTableView;
+@property (nonatomic, strong) UIImageView *line1;
+@property (nonatomic, strong) UIImageView *line2;
 
 @end
 
@@ -44,6 +47,13 @@
     self.navigationController.navigationBar.shadowImage = [UIImage new];
     self.navigationController.navigationBar.translucent = YES;
     self.navigationController.view.backgroundColor = [UIColor clearColor];
+    
+    self.songsTableView = [[UITableView alloc] init];
+    self.songsTableView.delegate = self;
+    self.songsTableView.dataSource = self;
+    [self.songsTableView registerClass:[SongsTableViewCell class] forCellReuseIdentifier:@"songsCell"];
+    self.songsTableView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addSubview:self.songsTableView];
     
     
     self.albumArtImageView = [[UIImageView alloc] init];
@@ -94,50 +104,71 @@
     self.dotImage.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:self.dotImage];
     
-    MainViewController *main = [[MainViewController alloc] init];
+    self.playButton = [UIButton new];
+    [self.playButton setTitle:@"Play" forState:UIControlStateNormal];
+    [self.playButton setBackgroundColor:[UIColor colorWithRed:(248/255.0) green:(247/255.0) blue:(251/255.0) alpha:1]];
+    self.playButton.layer.cornerRadius = 10;
+    self.playButton.clipsToBounds = YES;
+    [self.playButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal ];
+    [self.playButton setTranslatesAutoresizingMaskIntoConstraints:NO];
+    self.playButton = self.playButton;
+
+    UIImageView *playButtonImage = [[UIImageView alloc] init];
+    playButtonImage.image = [UIImage imageNamed:@"play-button.png"];
+    playButtonImage.translatesAutoresizingMaskIntoConstraints = NO;
+    self.playButtonImage = playButtonImage;
+    [self.playButton addSubview:self.playButtonImage];
+
+
+    [self.view addSubview: self.playButton];
+
+
+    self.shuffleButton = [UIButton new];
+    [self.shuffleButton setTitle:@"shuffle" forState:UIControlStateNormal];
+    [self.shuffleButton setBackgroundColor:[UIColor colorWithRed:(248/255.0) green:(247/255.0) blue:(251/255.0) alpha:1]];
+    self.shuffleButton.layer.cornerRadius = 10;
+    self.shuffleButton.clipsToBounds = YES;
+    [self.shuffleButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [self.shuffleButton setTranslatesAutoresizingMaskIntoConstraints:NO];
+
+    self.shuffleButton = self.shuffleButton;
+
+    self.shuffleButtonImage = [[UIImageView alloc] init];
+    self.shuffleButtonImage.image = [UIImage imageNamed:@"shuffle-button.png"];
+    self.shuffleButtonImage.translatesAutoresizingMaskIntoConstraints = NO;
+    self.shuffleButtonImage = self.shuffleButtonImage;
+    [self.shuffleButton addSubview:self.shuffleButtonImage];
+
+    [self.view addSubview:self.shuffleButton];
     
-   // [main addPlayButtonWithImage];
-   // [main addShuffleButtonWithImage];
+    self.line1 = [UIImageView new];
+    [self.line1 setBackgroundColor:[UIColor colorWithRed:(222/255.0) green:(222/255.0) blue:(222/255.0) alpha:1]];
+    [self.line1 setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.view addSubview:self.line1];
     
-        UIButton *playButton = [UIButton new];
-        [playButton setTitle:@"Play" forState:UIControlStateNormal];
-        [playButton setBackgroundColor:[UIColor colorWithRed:(248/255.0) green:(247/255.0) blue:(251/255.0) alpha:1]];
-        playButton.layer.cornerRadius = 10;
-        playButton.clipsToBounds = YES;
-        [playButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal ];
-        [playButton setTranslatesAutoresizingMaskIntoConstraints:NO];
-        self.playButton = playButton;
+    self.line2 = [UIImageView new];
+    [self.line2 setBackgroundColor:[UIColor colorWithRed:(222/255.0) green:(222/255.0) blue:(222/255.0) alpha:1]];
+    [self.line2 setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.view addSubview:self.line2];
     
-        UIImageView *playButtonImage = [[UIImageView alloc] init];
-        playButtonImage.image = [UIImage imageNamed:@"play-button.png"];
-        playButtonImage.translatesAutoresizingMaskIntoConstraints = NO;
-        self.playButtonImage = playButtonImage;
-        [playButton addSubview:self.playButtonImage];
+
+    
+// add album songs to the super view
+/* how this is going to be done
+ create mutiple labels according to the number of songs in array
+ 
+ 
+  or
+ 1 create a method
+ 2 print out multiple songs on new lines from album array
+ 3 return the songs in that new method
+ 4 add the method to a label
+ 
+ */
     
     
-        [self.view addSubview: self.playButton];
-    
-    
-        UIButton *shuffleButton = [UIButton new];
-        [shuffleButton setTitle:@"shuffle" forState:UIControlStateNormal];
-        [shuffleButton setBackgroundColor:[UIColor colorWithRed:(248/255.0) green:(247/255.0) blue:(251/255.0) alpha:1]];
-        shuffleButton.layer.cornerRadius = 10;
-        shuffleButton.clipsToBounds = YES;
-        [shuffleButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-        [shuffleButton setTranslatesAutoresizingMaskIntoConstraints:NO];
-    
-        self.shuffleButton = shuffleButton;
-    
-        UIImageView *shuffleButtonImage = [[UIImageView alloc] init];
-        shuffleButtonImage.image = [UIImage imageNamed:@"shuffle-button.png"];
-        shuffleButtonImage.translatesAutoresizingMaskIntoConstraints = NO;
-        self.shuffleButtonImage = shuffleButtonImage;
-        [shuffleButton addSubview:self.shuffleButtonImage];
-    
-        [self.view addSubview:self.shuffleButton];
     
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -154,8 +185,9 @@
     
     CGFloat titleButtonWidthMultiplier = 0.43;
     CGFloat titleButtonHeightConstant = 55;
-    CGFloat spaceBetweenAlbumAndButtons = 25;
+    CGFloat spaceBetweenAlbumAndButtons = 30;
     CGSize playButtonIconSize = CGSizeMake(15, 15);
+    CGSize line1HeightSize = CGSizeMake(0.9, 0.9);
     CGFloat spaceBetweenPlayButtonTextAndPlayIcon = -30;
     CGFloat spaceBetweenShuffleButtonAndShuffleIcon = -40;
 
@@ -172,6 +204,16 @@
     
     //the width anchor of the albumArtImageView is
     [self.albumArtImageView.widthAnchor constraintEqualToConstant:albumArtImageViewSize.width].active = YES;
+    
+    [self.line1.topAnchor constraintEqualToAnchor:self.albumArtImageView.bottomAnchor constant:15].active = YES;
+    [self.line1.widthAnchor constraintEqualToAnchor:self.line1.superview.widthAnchor multiplier:0.9].active = YES;
+    [self.line1.leftAnchor constraintEqualToAnchor:self.albumArtImageView.leftAnchor].active = YES;
+    [self.line1.heightAnchor constraintEqualToConstant:line1HeightSize.height].active = YES;
+    
+    [self.line2.topAnchor constraintEqualToAnchor:self.playButton.bottomAnchor constant:10].active = YES;
+    [self.line2.widthAnchor constraintEqualToAnchor:self.line1.superview.widthAnchor multiplier:0.9].active = YES;
+    [self.line2.leftAnchor constraintEqualToAnchor:self.playButton.leftAnchor].active = YES;
+    [self.line2.heightAnchor constraintEqualToConstant:line1HeightSize.height].active = YES;
     
     /*
      specify the autoLayouts of the AlbumNameLabel, ArtistNameLabel, GenreLabel, YearLabel
@@ -250,6 +292,11 @@
     [self.shuffleButton.topAnchor constraintEqualToAnchor:self.albumArtImageView.bottomAnchor constant:spaceBetweenAlbumAndButtons].active = YES;
     [self.shuffleButton.leftAnchor constraintEqualToAnchor:self.playButton.rightAnchor constant:20].active = YES;
 
+    [self.songsTableView.topAnchor constraintEqualToAnchor:self.line2.bottomAnchor constant:10].active = YES;
+    [self.songsTableView.widthAnchor constraintEqualToAnchor:self.songsTableView.superview.widthAnchor multiplier:0.94].active =YES;
+    [self.songsTableView.bottomAnchor constraintEqualToAnchor:self.songsTableView.superview.bottomAnchor].active = YES;
+    
+    
     
     
     
@@ -268,5 +315,29 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+
+- (UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    SongsTableViewCell *songsCell = (SongsTableViewCell  *)[tableView dequeueReusableCellWithIdentifier:@"songsCell" forIndexPath:indexPath];
+    
+    [songsCell setIndex:indexPath.row];
+    
+    
+    
+    
+    return songsCell;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.album.songs.count;
+}
+
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return  43;
+    
+}
+
 
 @end

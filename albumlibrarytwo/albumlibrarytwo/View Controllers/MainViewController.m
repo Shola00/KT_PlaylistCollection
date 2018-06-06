@@ -61,87 +61,34 @@
     
 
     
-    
-    
     UILabel *label = [[UILabel alloc] init];
-     label.text = @"Albums";
+    label.text = @"Albums";
     label.font = [UIFont fontWithName:@"Helvetica-Bold" size:30];
     self.albumLabel = label;
     self.albumLabel.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview: self.albumLabel];
     
-    [self addPlayButtonWithImage];
-    [self addShuffleButtonWithImage];
-    
-//    UIButton *playButton = [UIButton new];
-//    [playButton setTitle:@"Play" forState:UIControlStateNormal];
-//    [playButton setBackgroundColor:[UIColor colorWithRed:(248/255.0) green:(247/255.0) blue:(251/255.0) alpha:1]];
-//    playButton.layer.cornerRadius = 10;
-//    playButton.clipsToBounds = YES;
-//    [playButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal ];
-//    [playButton setTranslatesAutoresizingMaskIntoConstraints:NO];
-//    self.playButton = playButton;
-//
-//    UIImageView *playButtonImage = [[UIImageView alloc] init];
-//    playButtonImage.image = [UIImage imageNamed:@"play-button.png"];
-//    playButtonImage.translatesAutoresizingMaskIntoConstraints = NO;
-//    self.playButtonImage = playButtonImage;
-//    [playButton addSubview:self.playButtonImage];
-//
-//
-//    [self.view addSubview: self.playButton];
-    
-    
-//    UIButton *shuffleButton = [UIButton new];
-//    [shuffleButton setTitle:@"shuffle" forState:UIControlStateNormal];
-//    [shuffleButton setBackgroundColor:[UIColor colorWithRed:(248/255.0) green:(247/255.0) blue:(251/255.0) alpha:1]];
-//    shuffleButton.layer.cornerRadius = 10;
-//    shuffleButton.clipsToBounds = YES;
-//    [shuffleButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-//    [shuffleButton setTranslatesAutoresizingMaskIntoConstraints:NO];
-//
-//    self.shuffleButton = shuffleButton;
-//
-//    UIImageView *shuffleButtonImage = [[UIImageView alloc] init];
-//    shuffleButtonImage.image = [UIImage imageNamed:@"shuffle-button.png"];
-//    shuffleButtonImage.translatesAutoresizingMaskIntoConstraints = NO;
-//    self.shuffleButtonImage = shuffleButtonImage;
-//    [shuffleButton addSubview:self.shuffleButtonImage];
-//
-//    [self.view addSubview:self.shuffleButton];
-    
-    UIView *vwLine = [UIView new];
-    [vwLine setBackgroundColor:[UIColor blackColor]];
-    [vwLine setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [self.view addSubview:vwLine];
-    
-    
-}
 
--(void)addPlayButtonWithImage{
- 
-    self.playButton = [UIButton new];
-    [self.playButton setTitle:@"Play" forState:UIControlStateNormal];
-    [self.playButton setBackgroundColor:[UIColor colorWithRed:(248/255.0) green:(247/255.0) blue:(251/255.0) alpha:1]];
-    self.playButton.layer.cornerRadius = 10;
-    self.playButton.clipsToBounds = YES;
-    [self.playButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal ];
-    [self.playButton setTranslatesAutoresizingMaskIntoConstraints:NO];
-    self.playButton = self.playButton;
     
-    self.playButtonImage = [[UIImageView alloc] init];
-    self.playButtonImage.image = [UIImage imageNamed:@"play-button.png"];
-    self.playButtonImage.translatesAutoresizingMaskIntoConstraints = NO;
-    self.playButtonImage = self.playButtonImage;
-    [self.playButton addSubview:self.playButtonImage];
-    
-    
+    UIButton *playButton = [UIButton new];
+    [playButton setTitle:@"Play" forState:UIControlStateNormal];
+    [playButton setBackgroundColor:[UIColor colorWithRed:(248/255.0) green:(247/255.0) blue:(251/255.0) alpha:1]];
+    playButton.layer.cornerRadius = 10;
+    playButton.clipsToBounds = YES;
+    [playButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal ];
+    [playButton setTranslatesAutoresizingMaskIntoConstraints:NO];
+    self.playButton = playButton;
+
+    UIImageView *playButtonImage = [[UIImageView alloc] init];
+    playButtonImage.image = [UIImage imageNamed:@"play-button.png"];
+    playButtonImage.translatesAutoresizingMaskIntoConstraints = NO;
+    self.playButtonImage = playButtonImage;
+    [playButton addSubview:self.playButtonImage];
+
+
     [self.view addSubview: self.playButton];
     
-}
-
--(void)addShuffleButtonWithImage {
-  
+    
     UIButton *shuffleButton = [UIButton new];
     [shuffleButton setTitle:@"shuffle" forState:UIControlStateNormal];
     [shuffleButton setBackgroundColor:[UIColor colorWithRed:(248/255.0) green:(247/255.0) blue:(251/255.0) alpha:1]];
@@ -149,18 +96,22 @@
     shuffleButton.clipsToBounds = YES;
     [shuffleButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     [shuffleButton setTranslatesAutoresizingMaskIntoConstraints:NO];
-    
+
     self.shuffleButton = shuffleButton;
-    
+
     UIImageView *shuffleButtonImage = [[UIImageView alloc] init];
     shuffleButtonImage.image = [UIImage imageNamed:@"shuffle-button.png"];
     shuffleButtonImage.translatesAutoresizingMaskIntoConstraints = NO;
     self.shuffleButtonImage = shuffleButtonImage;
     [shuffleButton addSubview:self.shuffleButtonImage];
-    
+
     [self.view addSubview:self.shuffleButton];
     
+    
+    
+    
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -184,7 +135,7 @@
 
 -(Album *)getAlbumWithIndex:(NSInteger)index
 {
-    NSDictionary * currentAlbumDictionaryData = [[[AlbumLibrary sharedInstance] library] objectAtIndex:index];
+    NSDictionary *currentAlbumDictionaryData = [[[AlbumLibrary sharedInstance] library] objectAtIndex:index];
     
     Album *currentAlbum = [[Album alloc] initWithDictionary: currentAlbumDictionaryData];
     
