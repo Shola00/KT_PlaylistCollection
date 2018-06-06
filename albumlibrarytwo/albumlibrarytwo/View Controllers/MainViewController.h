@@ -13,5 +13,9 @@
 
 //@property (strong, nonatomic) Album *album;
 
+-(void)addShuffleButtonWithImage;
+-(void)addPlayButtonWithImage;
+-(void)playButtonAndImageConstrain;
+-(void)shuffleButtonAndImageConstrain;
 
 @end

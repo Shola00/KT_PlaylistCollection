@@ -14,5 +14,6 @@
 -(void)constrainToFillSuperViewWithHeightMultiplier:(double)multiplier;
 -(void)constrainToFillSuperViewWithWidthMultiplier:(double)multiplier;
 -(void)constrainToFillSuperViewWithWidthMultiplier:(double)wMultiplier heightMultiplier:(double)hMultiplier;
+-(void)playButtonAndImageConstrain;
 
 @end

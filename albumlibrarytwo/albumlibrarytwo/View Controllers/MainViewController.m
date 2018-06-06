@@ -12,6 +12,7 @@
 #import "Album.h"
 #import "AlbumLibrary.h"
 #import "AlbumDetailViewController.h"
+#import "UIView+ExtraLayout.h"
 
 @interface MainViewController () <UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -69,26 +70,78 @@
     self.albumLabel.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview: self.albumLabel];
     
+    [self addPlayButtonWithImage];
+    [self addShuffleButtonWithImage];
     
-    UIButton *playButton = [UIButton new];
-    [playButton setTitle:@"Play" forState:UIControlStateNormal];
-    [playButton setBackgroundColor:[UIColor colorWithRed:(248/255.0) green:(247/255.0) blue:(251/255.0) alpha:1]];
-    playButton.layer.cornerRadius = 10;
-    playButton.clipsToBounds = YES;
-    [playButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal ];
-    [playButton setTranslatesAutoresizingMaskIntoConstraints:NO];
-    self.playButton = playButton;
+//    UIButton *playButton = [UIButton new];
+//    [playButton setTitle:@"Play" forState:UIControlStateNormal];
+//    [playButton setBackgroundColor:[UIColor colorWithRed:(248/255.0) green:(247/255.0) blue:(251/255.0) alpha:1]];
+//    playButton.layer.cornerRadius = 10;
+//    playButton.clipsToBounds = YES;
+//    [playButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal ];
+//    [playButton setTranslatesAutoresizingMaskIntoConstraints:NO];
+//    self.playButton = playButton;
+//
+//    UIImageView *playButtonImage = [[UIImageView alloc] init];
+//    playButtonImage.image = [UIImage imageNamed:@"play-button.png"];
+//    playButtonImage.translatesAutoresizingMaskIntoConstraints = NO;
+//    self.playButtonImage = playButtonImage;
+//    [playButton addSubview:self.playButtonImage];
+//
+//
+//    [self.view addSubview: self.playButton];
     
-    UIImageView *playButtonImage = [[UIImageView alloc] init];
-    playButtonImage.image = [UIImage imageNamed:@"play-button.png"];
-    playButtonImage.translatesAutoresizingMaskIntoConstraints = NO;
-    self.playButtonImage = playButtonImage;
-    [playButton addSubview:self.playButtonImage];
+    
+//    UIButton *shuffleButton = [UIButton new];
+//    [shuffleButton setTitle:@"shuffle" forState:UIControlStateNormal];
+//    [shuffleButton setBackgroundColor:[UIColor colorWithRed:(248/255.0) green:(247/255.0) blue:(251/255.0) alpha:1]];
+//    shuffleButton.layer.cornerRadius = 10;
+//    shuffleButton.clipsToBounds = YES;
+//    [shuffleButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+//    [shuffleButton setTranslatesAutoresizingMaskIntoConstraints:NO];
+//
+//    self.shuffleButton = shuffleButton;
+//
+//    UIImageView *shuffleButtonImage = [[UIImageView alloc] init];
+//    shuffleButtonImage.image = [UIImage imageNamed:@"shuffle-button.png"];
+//    shuffleButtonImage.translatesAutoresizingMaskIntoConstraints = NO;
+//    self.shuffleButtonImage = shuffleButtonImage;
+//    [shuffleButton addSubview:self.shuffleButtonImage];
+//
+//    [self.view addSubview:self.shuffleButton];
+    
+    UIView *vwLine = [UIView new];
+    [vwLine setBackgroundColor:[UIColor blackColor]];
+    [vwLine setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.view addSubview:vwLine];
+    
+    
+}
+
+-(void)addPlayButtonWithImage{
+ 
+    self.playButton = [UIButton new];
+    [self.playButton setTitle:@"Play" forState:UIControlStateNormal];
+    [self.playButton setBackgroundColor:[UIColor colorWithRed:(248/255.0) green:(247/255.0) blue:(251/255.0) alpha:1]];
+    self.playButton.layer.cornerRadius = 10;
+    self.playButton.clipsToBounds = YES;
+    [self.playButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal ];
+    [self.playButton setTranslatesAutoresizingMaskIntoConstraints:NO];
+    self.playButton = self.playButton;
+    
+    self.playButtonImage = [[UIImageView alloc] init];
+    self.playButtonImage.image = [UIImage imageNamed:@"play-button.png"];
+    self.playButtonImage.translatesAutoresizingMaskIntoConstraints = NO;
+    self.playButtonImage = self.playButtonImage;
+    [self.playButton addSubview:self.playButtonImage];
     
     
     [self.view addSubview: self.playButton];
     
-    
+}
+
+-(void)addShuffleButtonWithImage {
+  
     UIButton *shuffleButton = [UIButton new];
     [shuffleButton setTitle:@"shuffle" forState:UIControlStateNormal];
     [shuffleButton setBackgroundColor:[UIColor colorWithRed:(248/255.0) green:(247/255.0) blue:(251/255.0) alpha:1]];
@@ -106,12 +159,6 @@
     [shuffleButton addSubview:self.shuffleButtonImage];
     
     [self.view addSubview:self.shuffleButton];
-    
-    UIView *vwLine = [UIView new];
-    [vwLine setBackgroundColor:[UIColor blackColor]];
-    [vwLine setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [self.view addSubview:vwLine];
-    
     
 }
 
@@ -175,16 +222,15 @@
     CGFloat collectionViewMultiplier = 0.9;
     
     
-    
     [self.playButtonImage.centerYAnchor constraintEqualToAnchor:self.playButtonImage.superview.centerYAnchor].active = YES;
-    
+
     [self.playButtonImage.rightAnchor constraintEqualToAnchor:self.playButtonImage.superview.centerXAnchor constant: spaceBetweenPlayButtonTextAndPlayIcon].active = YES;
-    
+
     [self.playButtonImage.widthAnchor constraintEqualToConstant:playButtonIconSize.width].active = YES;
     [self.playButtonImage.heightAnchor constraintEqualToConstant:playButtonIconSize.height].active = YES;
-    
+
     [self.playButton.widthAnchor constraintEqualToAnchor:self.playButton.superview.widthAnchor multiplier:titleButtonWidthMultiplier].active = YES;
-    
+
     [self.playButton.heightAnchor constraintEqualToConstant:titleButtonHeightConstant].active = YES;
     
     [self.albumLabel.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:(screenSize.height * 0.11)].active = YES;
@@ -197,7 +243,7 @@
     
 
     [self.shuffleButtonImage.centerYAnchor constraintEqualToAnchor:self.shuffleButtonImage.superview.centerYAnchor].active = YES;
-    
+
     [self.shuffleButtonImage.widthAnchor constraintEqualToConstant:playButtonIconSize.width].active = YES;
     [self.shuffleButtonImage.heightAnchor constraintEqualToConstant:playButtonIconSize.height].active = YES;
     [self.shuffleButtonImage.rightAnchor constraintEqualToAnchor:self.shuffleButtonImage.superview.centerXAnchor constant:spaceBetweenShuffleButtonAndShuffleIcon].active = YES;
@@ -208,6 +254,8 @@
         constraintEqualToAnchor:self.view.rightAnchor constant:-20].active = YES;
     [self.shuffleButton.topAnchor constraintEqualToAnchor:self.albumLabel.bottomAnchor constant:spaceBetweenAlbumAndButtons].active = YES;
     [self.shuffleButton.leftAnchor constraintEqualToAnchor:self.playButton.rightAnchor constant:20].active = YES;
+
+
     
     //the TOP ANCHOR of the collectionview should be positioned under the BOTTOM of the play BUTTON ANCHOR with little spacing UNDER the buttons
     [self.collectionView.topAnchor constraintEqualToAnchor:self.playButton.bottomAnchor constant:20].active = YES;
@@ -220,11 +268,8 @@
     
     
     [self.collectionView.bottomAnchor constraintEqualToAnchor:self.collectionView.superview.bottomAnchor].active = YES;
-
-    
     
 }
-
 
 
 /*
@@ -236,5 +281,7 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
 
 @end

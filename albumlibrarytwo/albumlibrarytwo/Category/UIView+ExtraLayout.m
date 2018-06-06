@@ -44,4 +44,9 @@
 //    [self.centerYAnchor constraintGreaterThanOrEqualToAnchor:self.superview.centerYAnchor].active = YES;
 }
 
+//-(void)playButtonAndImageConstrain {
+//
+//
+//}
+
 @end

@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "AlbumLibrary.h"
 #import "Album.h"
+#import "MainViewController.h"
 
 
 @interface AlbumDetailViewController ()
@@ -21,9 +22,11 @@
 @property (nonatomic, strong) UILabel *genreLabel;
 @property (nonatomic, strong) UILabel *yearLabel;
 @property (nonatomic, strong) UIButton *playButton;
-@property (nonatomic, strong) UIButton *shuffleBUtton;
+@property (nonatomic, strong) UIButton *shuffleButton;
 @property (nonatomic, strong) UILabel *songLabel;
-@property (nonatomic, strong) UILabel *dotLabel;
+@property (nonatomic, strong) UIImageView *dotImage;
+@property (nonatomic, strong) UIImageView *playButtonImage;
+@property (nonatomic, strong) UIImageView *shuffleButtonImage;
 
 @end
 
@@ -85,24 +88,53 @@
     self.yearLabel.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview: self.yearLabel];
     self.yearLabel.text = [NSString stringWithFormat:@"%@", self.album.year];
-    
-    //creating the dot with a label
-    self.dotLabel = [[UILabel alloc] init];
-    self.dotLabel.text = @".";
-    self.dotLabel.textColor = [UIColor colorWithRed:(135/255.0) green:(135/255.0) blue:(138/255.0) alpha:1];
-    self.dotLabel.font = [UIFont fontWithName:@"Helvetica-bold" size:45];
-    self.dotLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.view addSubview: self.dotLabel];
-    self.dotLabel.numberOfLines = 0;
-    [self.dotLabel sizeToFit];
-    self.dotLabel.textAlignment = NSTextAlignmentCenter;
 
+    self.dotImage = [[UIImageView alloc] init];
+    self.dotImage.image = [UIImage imageNamed:@"dot"];
+    self.dotImage.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addSubview:self.dotImage];
+    
+    MainViewController *main = [[MainViewController alloc] init];
+    
+   // [main addPlayButtonWithImage];
+   // [main addShuffleButtonWithImage];
+    
+        UIButton *playButton = [UIButton new];
+        [playButton setTitle:@"Play" forState:UIControlStateNormal];
+        [playButton setBackgroundColor:[UIColor colorWithRed:(248/255.0) green:(247/255.0) blue:(251/255.0) alpha:1]];
+        playButton.layer.cornerRadius = 10;
+        playButton.clipsToBounds = YES;
+        [playButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal ];
+        [playButton setTranslatesAutoresizingMaskIntoConstraints:NO];
+        self.playButton = playButton;
+    
+        UIImageView *playButtonImage = [[UIImageView alloc] init];
+        playButtonImage.image = [UIImage imageNamed:@"play-button.png"];
+        playButtonImage.translatesAutoresizingMaskIntoConstraints = NO;
+        self.playButtonImage = playButtonImage;
+        [playButton addSubview:self.playButtonImage];
     
     
+        [self.view addSubview: self.playButton];
     
     
-
+        UIButton *shuffleButton = [UIButton new];
+        [shuffleButton setTitle:@"shuffle" forState:UIControlStateNormal];
+        [shuffleButton setBackgroundColor:[UIColor colorWithRed:(248/255.0) green:(247/255.0) blue:(251/255.0) alpha:1]];
+        shuffleButton.layer.cornerRadius = 10;
+        shuffleButton.clipsToBounds = YES;
+        [shuffleButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+        [shuffleButton setTranslatesAutoresizingMaskIntoConstraints:NO];
     
+        self.shuffleButton = shuffleButton;
+    
+        UIImageView *shuffleButtonImage = [[UIImageView alloc] init];
+        shuffleButtonImage.image = [UIImage imageNamed:@"shuffle-button.png"];
+        shuffleButtonImage.translatesAutoresizingMaskIntoConstraints = NO;
+        self.shuffleButtonImage = shuffleButtonImage;
+        [shuffleButton addSubview:self.shuffleButtonImage];
+    
+        [self.view addSubview:self.shuffleButton];
     
 }
 
@@ -117,7 +149,17 @@
     
     [super viewWillLayoutSubviews];
     
-        CGSize albumArtImageViewSize = CGSizeMake(156, 156);
+    CGSize albumArtImageViewSize = CGSizeMake(156, 156);
+    CGSize dotImageSize = CGSizeMake(5, 5);
+    
+    CGFloat titleButtonWidthMultiplier = 0.43;
+    CGFloat titleButtonHeightConstant = 55;
+    CGFloat spaceBetweenAlbumAndButtons = 25;
+    CGSize playButtonIconSize = CGSizeMake(15, 15);
+    CGFloat spaceBetweenPlayButtonTextAndPlayIcon = -30;
+    CGFloat spaceBetweenShuffleButtonAndShuffleIcon = -40;
+
+    
     
     //the left anchor of the albumArtImageView is constraint to the left anchor of the superView constant(N)
         [self.albumArtImageView.leftAnchor constraintEqualToAnchor:self.albumArtImageView.superview.leftAnchor constant:20].active = YES;
@@ -160,24 +202,54 @@
     [self.genreLabel.topAnchor constraintEqualToAnchor:self.artistLabel.bottomAnchor constant:2].active = YES;
     
     
-    
-    [self.dotLabel.leftAnchor constraintEqualToAnchor:self.genreLabel.rightAnchor constant:4].active = YES;
-    
-    //1, the left anchor of the dot label is constraint to the right anchor of the yearLabel with constant(n)
-    
-    [self.dotLabel.centerYAnchor constraintEqualToAnchor:self.genreLabel.centerYAnchor].active = YES;
-    
-    //[self.dotLabel.heightAnchor constraintEqualToConstant:20].active = YES;
-    
-    //1, the left anchor of the artist label is constraint to the right anchor of the albumImageView with constant(n)
-    [self.yearLabel.leftAnchor constraintEqualToAnchor:self.dotLabel.rightAnchor constant:4].active = YES;
+    //
 
     //the top anchor of the yearLabel is constraint to the bottom anchor of artistLabel with contant (n)
-    [self.yearLabel.centerYAnchor constraintEqualToAnchor:self.genreLabel.centerYAnchor].active = YES;
+    
+    
+    [self.dotImage.heightAnchor constraintEqualToConstant:dotImageSize.height].active = YES;
+    
+    //the width anchor of the albumArtImageView is
+    [self.dotImage.widthAnchor constraintEqualToConstant:dotImageSize.width].active = YES;
+    [self.dotImage.leftAnchor constraintEqualToAnchor:self.genreLabel.rightAnchor constant:6].active = YES;
+    [self.dotImage.topAnchor constraintEqualToAnchor:self.artistLabel.bottomAnchor constant:12].active = YES;
+    
+    [self.yearLabel.leftAnchor constraintEqualToAnchor:self.dotImage.rightAnchor constant:6].active = YES;
+    [self.yearLabel.topAnchor constraintEqualToAnchor:self.artistLabel.bottomAnchor constant:2].active = YES;
 
+    //
     
-   
     
+    [self.playButtonImage.centerYAnchor constraintEqualToAnchor:self.playButtonImage.superview.centerYAnchor].active = YES;
+    
+    [self.playButtonImage.rightAnchor constraintEqualToAnchor:self.playButtonImage.superview.centerXAnchor constant: spaceBetweenPlayButtonTextAndPlayIcon].active = YES;
+    
+    [self.playButtonImage.widthAnchor constraintEqualToConstant:playButtonIconSize.width].active = YES;
+    [self.playButtonImage.heightAnchor constraintEqualToConstant:playButtonIconSize.height].active = YES;
+    
+    [self.playButton.widthAnchor constraintEqualToAnchor:self.playButton.superview.widthAnchor multiplier:titleButtonWidthMultiplier].active = YES;
+    
+    [self.playButton.heightAnchor constraintEqualToConstant:titleButtonHeightConstant].active = YES;
+    
+    
+    [self.playButton.leftAnchor constraintEqualToAnchor:self.albumArtImageView.leftAnchor].active = YES;
+    
+    [self.playButton.topAnchor constraintEqualToAnchor:self.albumArtImageView.bottomAnchor constant:spaceBetweenAlbumAndButtons].active = YES;
+    
+    
+    [self.shuffleButtonImage.centerYAnchor constraintEqualToAnchor:self.shuffleButtonImage.superview.centerYAnchor].active = YES;
+    
+    [self.shuffleButtonImage.widthAnchor constraintEqualToConstant:playButtonIconSize.width].active = YES;
+    [self.shuffleButtonImage.heightAnchor constraintEqualToConstant:playButtonIconSize.height].active = YES;
+    [self.shuffleButtonImage.rightAnchor constraintEqualToAnchor:self.shuffleButtonImage.superview.centerXAnchor constant:spaceBetweenShuffleButtonAndShuffleIcon].active = YES;
+    
+    
+    [self.shuffleButton.heightAnchor constraintEqualToConstant:titleButtonHeightConstant].active = YES;
+    [self.shuffleButton.rightAnchor
+     constraintEqualToAnchor:self.view.rightAnchor constant:-20].active = YES;
+    [self.shuffleButton.topAnchor constraintEqualToAnchor:self.albumArtImageView.bottomAnchor constant:spaceBetweenAlbumAndButtons].active = YES;
+    [self.shuffleButton.leftAnchor constraintEqualToAnchor:self.playButton.rightAnchor constant:20].active = YES;
+
     
     
     
