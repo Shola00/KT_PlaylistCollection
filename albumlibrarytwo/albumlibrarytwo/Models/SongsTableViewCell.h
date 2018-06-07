@@ -13,6 +13,5 @@
 
 @property (strong, nonatomic) Album *albumSong;
 
--(void)setIndex:(NSInteger *)index;
 
 @end

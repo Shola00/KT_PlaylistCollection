@@ -36,6 +36,14 @@
     
 }
 
+-(void)getAlbumWithIndex:(NSInteger)index{
+    
+    self.currentSong = [[NSString alloc] initWithString:self.songs[index]];
+    
+    self.songNumber = [NSString stringWithFormat:@"%ld",index +1];
+    
+}
+
 
 -(UIImage *)getAlbumImage {
     

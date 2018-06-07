@@ -11,7 +11,7 @@
 @class Album;
 @interface MainViewController : UIViewController 
 
-//@property (strong, nonatomic) Album *album;
+@property (strong, nonatomic) Album *album;
 
 //-(void)addShuffleButtonWithImage;
 //-(void)addPlayButtonWithImage;

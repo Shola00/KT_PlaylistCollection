@@ -51,7 +51,7 @@
     self.songsTableView = [[UITableView alloc] init];
     self.songsTableView.delegate = self;
     self.songsTableView.dataSource = self;
-    [self.songsTableView registerClass:[SongsTableViewCell class] forCellReuseIdentifier:@"songsCell"];
+    [self.songsTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"songsCell"];
     self.songsTableView.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:self.songsTableView];
     
@@ -184,7 +184,7 @@
     CGSize dotImageSize = CGSizeMake(5, 5);
     
     CGFloat titleButtonWidthMultiplier = 0.43;
-    CGFloat titleButtonHeightConstant = 55;
+    CGFloat titleButtonHeightConstant = 50;
     CGFloat spaceBetweenAlbumAndButtons = 30;
     CGSize playButtonIconSize = CGSizeMake(15, 15);
     CGSize line1HeightSize = CGSizeMake(0.9, 0.9);
@@ -316,16 +316,34 @@
 }
 */
 
+//-(Album *)getAlbumSongWithIndex:(NSInteger *)index {
+//
+//    //NSDictionary *currentAlbumDict = [[[AlbumLibrary sharedInstance] library] objectAtIndex:index];
+//
+//    Album *currentAlbum = [[Album alloc] init];
+//    [currentAlbum getAlbumWithIndex:index];
+//
+//
+//
+//    return currentAlbum;
+//}
+
 
 
 - (UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    SongsTableViewCell *songsCell = (SongsTableViewCell  *)[tableView dequeueReusableCellWithIdentifier:@"songsCell" forIndexPath:indexPath];
+    UITableViewCell *songsCell = (UITableViewCell  *)[tableView dequeueReusableCellWithIdentifier:@"songsCell" forIndexPath:indexPath];
     
-    [songsCell setIndex:indexPath.row];
+    //songsCell.albumSong = [self getAlbumSongWithIndex:indexPath.row];
+    
+    //newLibraryCell.album = [self getAlbumWithIndex:indexPath.row];
+    
+        //songsCell.textLabel.text = _album.songs[indexPath.row];
     
     
     
     
+     songsCell.textLabel.text = [NSString stringWithFormat:@"%li    %@",indexPath.row+1, _album.songs[indexPath.row]];
+ 
     return songsCell;
 }
 

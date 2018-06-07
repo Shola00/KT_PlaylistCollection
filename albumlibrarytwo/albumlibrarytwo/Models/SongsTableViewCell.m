@@ -11,46 +11,67 @@
 
 @interface SongsTableViewCell()
 
-@property (nonatomic, strong) UILabel *songLabel;
-@property (nonatomic, strong) UILabel *songNumber;
+@property (nonatomic, strong) UILabel *songNameLabel;
+@property (nonatomic, strong) UILabel *songNumberLabel;
 
 @end
 
 
 @implementation SongsTableViewCell
-@synthesize songLabel = _songLabell;
+//@synthesize songLabel = _songLabell;
 
--(void)setIndex:(NSInteger *)index {
+
+-(void)setAlbumSong:(Album *)albumSong {
+    albumSong = _albumSong;
     
-    self.songLabel = [[UILabel alloc] init];
-    self.songLabel.text = _albumSong.songs;
+    if (!self.songNameLabel) {
+        self.songNameLabel = [[UILabel alloc]init];
+        self.songNameLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    }
+    self.songNameLabel.text = _albumSong.currentSong;
     
-    self.songNumber = [[UILabel alloc] init];
-    self.songNumber.text = [NSString stringWithFormat:@"%d", index +1];
+    if (!self.songNameLabel.superview) {
+        [self.contentView addSubview:self.songNameLabel];
+    }
     
-    [self.contentView addSubview:self.songNumber];
-    [self.contentView addSubview:self.songLabel];
+    if (!self.songNumberLabel) {
+        self.songNumberLabel = [[UILabel alloc]init];
+        self.songNumberLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    }
+    self.songNumberLabel.text = _albumSong.songNumber;
+    
+    if (!self.songNumberLabel.superview) {
+        [self.contentView addSubview:self.songNumberLabel];
+    }
+    
 }
 
 
 
 
+//- (void)awakeFromNib {
+//    [super awakeFromNib];
+//    // Initialization code
+//}
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-}
+//- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+//    [super setSelected:selected animated:animated];
+//
+//    // Configure the view for the selected state
+//}
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
 
 -(void)layoutSubviews {
-    [self.songNumber.topAnchor constraintEqualToAnchor:self.superview.topAnchor].active = YES;
-    [self.songNumber.leftAnchor constraintEqualToAnchor:self.superview.leftAnchor].active = YES;
-    [self.songLabel.leftAnchor constraintEqualToAnchor:self.songNumber.rightAnchor constant:10].active = YES;
+    [super layoutSubviews];
+    
+    [self.songNameLabel. widthAnchor constraintEqualToAnchor:self.songNameLabel.superview.widthAnchor multiplier:0.85].active = YES;
+    //[self.songNameLabel.rightAnchor constraintEqualToAnchor:self.songNameLabel.superview.rightAnchor].active = YES;
+    [self.songNameLabel.topAnchor constraintEqualToAnchor:self.songNameLabel.superview.topAnchor].active = YES;
+    
+    
+//    [self.songNumberLabel.widthAnchor constraintEqualToAnchor:self.songNumberLabel.superview.widthAnchor multiplier:0.15].active = YES;
+//    [self.songNumberLabel.leftAnchor constraintEqualToAnchor:self.songNumberLabel.superview.leftAnchor].active = YES;
+//    [self.songNumberLabel.topAnchor constraintEqualToAnchor:self.songNumberLabel.superview.topAnchor].active = YES;
 }
 
 @end

@@ -19,8 +19,11 @@
 @property (strong, nonatomic) NSArray *songs;
 @property (nonatomic, strong) NSString *albumArtURL;
 @property (nonatomic, strong) NSString *albumArtLocalImgName;
+@property (nonatomic, strong) NSString *currentSong;
+@property (nonatomic, strong) NSString *songNumber;
 
 - (instancetype)initWithDictionary:(NSDictionary *)albumDictionary;
 -(UIImage *)getAlbumImage;
+-(void)getAlbumWithIndex:(NSInteger)index;
 
 @end
